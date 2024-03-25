@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Engine : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    static public Engine mInstant;
+    
+    [SerializeField] Player mPlayer;
+    [SerializeField] SceneMgr mSceneMgr;
+
+
+    public Player player { get { return mPlayer; } }
+    public SceneMgr SceneMgr { get { return mSceneMgr; } }
+
+    private void Awake()
     {
-        
+        mInstant = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -1,15 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+
 public class InputScript : MonoBehaviour
 {
     [SerializeField] private Vector2 mInputVec;
+    [SerializeField] private float mSpeed = 5.0f; //default speed
 
-    public Vector2 test;
 
+    private float mDiagonal;
     private SpriteRenderer mSpriteRenderer;
     private Rigidbody2D mRigidbody;
 
@@ -18,13 +22,14 @@ public class InputScript : MonoBehaviour
         mSpriteRenderer = GetComponent<SpriteRenderer>();
         mRigidbody = GetComponent<Rigidbody2D>();
 
-
+        float sqrt = Mathf.Sqrt(2);
+        mDiagonal = 1 / sqrt;
     }
 
     private void Update()
     {
-        #region 이동 로직
-        
+
+        #region PlayerMove
         Vector2 value = Vector2.zero;
 
         if (Input.GetKey(KeyCode.A))
@@ -65,25 +70,28 @@ public class InputScript : MonoBehaviour
         {
             value.y = +1;
         }
-        //mInputVec = value;
+
+        if(Math.Abs(value.x) + Math.Abs(value.y) == 2)
+        {
+            value *= mDiagonal;
+        }
+
+
+        mInputVec = value;
         #endregion
 
+
+
+
+
+
     }
-
-    void OnMove(InputValue _value)
-    {
-        mInputVec = _value.Get<Vector2>();
-    }
-
-
     private void FixedUpdate()
     {
-        Vector2 pos = mInputVec.normalized * 5.0f * Time.fixedDeltaTime;
+        Vector2 pos = mInputVec.normalized * mSpeed * Time.fixedDeltaTime;
 
 
         mRigidbody.MovePosition(mRigidbody.position + pos);
-
-
 
     }
 
