@@ -9,17 +9,42 @@ using UnityEngine.InputSystem;
 
 public class InputScript : MonoBehaviour
 {
+    public enum DirectionType
+    {        
+        Up,
+        Down,
+        Left,
+        Right,
+        DiagonalUpLeft,
+        DiagonalUpRight,
+        DiagonalDownLeft,
+        DiagonalDownRight,
+    }
+
+
     [SerializeField] private Vector2 mInputVec;
     [SerializeField] private float mSpeed = 5.0f; //default speed
 
-
+    private DirectionType mDirection;
     private float mDiagonal;
-    private SpriteRenderer mSpriteRenderer;
     private Rigidbody2D mRigidbody;
+
+
+    public DirectionType direction
+    {
+        get { return mDirection; }
+        set {  mDirection = value; }
+    }
+
+    public Vector2 InputVec
+    {
+        get { return mInputVec; }
+        set { mInputVec = value; }
+    }
 
     private void Awake()
     {
-        mSpriteRenderer = GetComponent<SpriteRenderer>();
+       
         mRigidbody = GetComponent<Rigidbody2D>();
 
         float sqrt = Mathf.Sqrt(2);
@@ -56,19 +81,23 @@ public class InputScript : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.A))
         {
-            value.x = +1;
+            if (value.x < -0.1f)
+                value.x = +1;
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
-            value.x = -1;
+            if (value.x > 0.1f)
+                value.x = -1;
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
-            value.y = -1;
+            if (value.y > 0.1f)
+                value.y = -1;
         }
         if (Input.GetKeyUp(KeyCode.S))
         {
-            value.y = +1;
+            if (value.y < -0.1f)
+                value.y = +1;
         }
 
         if(Math.Abs(value.x) + Math.Abs(value.y) == 2)
@@ -80,6 +109,44 @@ public class InputScript : MonoBehaviour
         mInputVec = value;
         #endregion
 
+        #region PlayerDir
+
+        if (mInputVec.magnitude != 0)
+        {
+            if (mInputVec.x >= 0)
+            {
+                if (mInputVec.x == 1)
+                    AddDir(DirectionType.Right);
+                else if(mInputVec.x == 0)
+                {
+                    if (mInputVec.y == 1)
+                        AddDir(DirectionType.Up);
+                    else if (mInputVec.y == -1)
+                        AddDir(DirectionType.Down);
+                }
+                else
+                {
+                    if (mInputVec.y > 0.7)
+                        AddDir(DirectionType.DiagonalUpRight);
+                    else if (mInputVec.y < -0.7)
+                        AddDir(DirectionType.DiagonalDownRight);
+                }
+            }
+            else if(mInputVec.x < 0)
+            {
+                if (mInputVec.x == -1)
+                    AddDir(DirectionType.Left);
+                else
+                {
+                    if (mInputVec.y > 0.7)
+                        AddDir(DirectionType.DiagonalUpLeft);
+                    else if (mInputVec.y < -0.7)
+                        AddDir(DirectionType.DiagonalDownLeft);
+                }
+            }              
+        }
+
+        #endregion
 
 
 
@@ -88,12 +155,23 @@ public class InputScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
         Vector2 pos = mInputVec.normalized * mSpeed * Time.fixedDeltaTime;
 
 
         mRigidbody.MovePosition(mRigidbody.position + pos);
 
+
+        if (mInputVec.magnitude > 0)
+            GetComponent<PlayerStatus>().state = PlayerStatus.StateType.Walking;
+        else
+            GetComponent<PlayerStatus>().state = PlayerStatus.StateType.Idle;
+
     }
 
 
+    void AddDir(DirectionType _dir)
+    {
+        mDirection = _dir;       
+    }
 }

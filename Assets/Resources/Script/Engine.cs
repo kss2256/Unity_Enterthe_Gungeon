@@ -16,6 +16,7 @@ public class Engine : MonoBehaviour
     private void Awake()
     {
         mInstant = this;
+        DontDestroyOnLoad(this);
     }
 
 }

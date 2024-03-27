@@ -21,7 +21,12 @@ public class SceneMgr : MonoBehaviour
         set { mCurrentScene = value; }
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+        transform.GetChild(0).gameObject.SetActive(true);
 
+    }
 
 
 
