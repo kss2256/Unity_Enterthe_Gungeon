@@ -7,16 +7,16 @@ public class PlayerAnimation : MonoBehaviour
 
     private Vector2 mInputVec;
     private SpriteRenderer mSpriteRenderer;
-    private Animation mAnimation;
+    private Animator mAnimator;
 
-    private StateType mCurState;
+    public StateType mCurState;
     private StateType mPrevState;
 
 
     private void Awake()
     {
         mSpriteRenderer = GetComponent<SpriteRenderer>();
-        mAnimation = GetComponent<Animation>();
+        mAnimator = GetComponent<Animator>();
        
     }
 
@@ -34,19 +34,15 @@ public class PlayerAnimation : MonoBehaviour
                 break;
             case StateType.Idle:
                 {
-                    if(mPrevState != StateType.Idle)
-                    {
-                     
-                        Debug.Log(strDir);
-                        //mAnimation.Play();
-                    }
+                  
 
 
                 }
                 break;
             case StateType.Walking:
                 {
-
+                    
+                  
                 }
                 break;
             case StateType.Roll:

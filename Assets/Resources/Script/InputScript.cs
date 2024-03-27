@@ -149,7 +149,10 @@ public class InputScript : MonoBehaviour
         #endregion
 
 
-
+        if (mInputVec.magnitude > 0)
+            GetComponent<PlayerStatus>().state = PlayerStatus.StateType.Walking;
+        else
+            GetComponent<PlayerStatus>().state = PlayerStatus.StateType.Idle;
 
 
     }
@@ -162,10 +165,7 @@ public class InputScript : MonoBehaviour
         mRigidbody.MovePosition(mRigidbody.position + pos);
 
 
-        if (mInputVec.magnitude > 0)
-            GetComponent<PlayerStatus>().state = PlayerStatus.StateType.Walking;
-        else
-            GetComponent<PlayerStatus>().state = PlayerStatus.StateType.Idle;
+      
 
     }
 
