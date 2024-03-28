@@ -9,7 +9,7 @@ public class PlayerAnimation : MonoBehaviour
     private SpriteRenderer mSpriteRenderer;
     private Animator mAnimator;
 
-    public StateType mCurState;
+    private StateType mCurState;
     private StateType mPrevState;
 
 
@@ -23,7 +23,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        string strDir = dir();
+        
         
         mCurState = GetComponent<PlayerStatus>().state;
         mInputVec = GetComponent<InputScript>().InputVec;
@@ -34,15 +34,20 @@ public class PlayerAnimation : MonoBehaviour
                 break;
             case StateType.Idle:
                 {
-                  
-
-
+                    if(mPrevState != StateType.Idle)
+                    {
+                        Vector2 vecDir = dir();
+                        mAnimator.SetBool("Walking", false);
+                        mAnimator.SetFloat("IdleX", vecDir.x);
+                        mAnimator.SetFloat("IdleY", vecDir.y);
+                    }                   
                 }
                 break;
             case StateType.Walking:
                 {
-                    
-                  
+                    mAnimator.SetBool("Walking", true);
+                    mAnimator.SetFloat("DirX", mInputVec.x);
+                    mAnimator.SetFloat("DirY", mInputVec.y);
                 }
                 break;
             case StateType.Roll:
@@ -66,33 +71,35 @@ public class PlayerAnimation : MonoBehaviour
     }
 
 
-    private string dir()
+    private Vector2 dir()
     {     
-        string dir = "";
+        Vector2 vecDir = Vector2.zero;
         switch (GetComponent<InputScript>().direction)
         {
             case DirectionType.Up:
-                dir = "Up";
+                vecDir = Vector2.up;
                 break;
             case DirectionType.Down:
-                dir = "Down";
+                vecDir = Vector2.down;
                 break;
             case DirectionType.Left:               
             case DirectionType.Right:
             case DirectionType.DiagonalDownLeft:               
             case DirectionType.DiagonalDownRight:
                 {
-                    dir = "DiagonalDown";
+                    vecDir.x = 0.7f;
+                    vecDir.y = -0.7f;                   
                 }              
                 break;
             case DirectionType.DiagonalUpLeft:               
             case DirectionType.DiagonalUpRight:
                 {
-                    dir = "DiagonalUp";
+                    vecDir.x = 0.7f;
+                    vecDir.y = 0.7f;
                 }
                 break; 
         }
 
-        return dir;
+        return vecDir;
     }
 }

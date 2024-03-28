@@ -43,8 +43,7 @@ public class InputScript : MonoBehaviour
     }
 
     private void Awake()
-    {
-       
+    {       
         mRigidbody = GetComponent<Rigidbody2D>();
 
         float sqrt = Mathf.Sqrt(2);

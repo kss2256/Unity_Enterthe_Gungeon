@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mInputVec: {x: 0, y: 0}
-  mSpeed: 5
+  mSpeed: 6
 --- !u!50 &1383417088
 Rigidbody2D:
   serializedVersion: 4
@@ -874,6 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8ed25729ccc3d40b39954c3ce893f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mCurState: 0
 --- !u!114 &1383417092
 MonoBehaviour:
   m_ObjectHideFlags: 0
