@@ -9,6 +9,9 @@ using UnityEngine.InputSystem;
 
 public class InputScript : MonoBehaviour
 {
+    
+
+
     public enum DirectionType
     {        
         Up,
@@ -24,11 +27,15 @@ public class InputScript : MonoBehaviour
 
     [SerializeField] private Vector2 mInputVec;
     [SerializeField] private float mSpeed = 5.0f; //default speed
+    [SerializeField] private float mRollFower = 7.0f; // default fower
 
+    private Vector2[] mDirectionValue;
+
+    private PlayerStatus mPlayerStatus;
     private DirectionType mDirection;
     private float mDiagonal;
     private Rigidbody2D mRigidbody;
-
+    private bool mbMoveStop = false;
 
     public DirectionType direction
     {
@@ -43,15 +50,29 @@ public class InputScript : MonoBehaviour
     }
 
     private void Awake()
-    {       
+    {
         mRigidbody = GetComponent<Rigidbody2D>();
-
+        mPlayerStatus = GetComponent<PlayerStatus>();
         float sqrt = Mathf.Sqrt(2);
         mDiagonal = 1 / sqrt;
+
+        mDirectionValue = new Vector2[]
+        {
+        new Vector2(0, 1),                  // 위쪽
+        new Vector2(0, -1),                 // 아래쪽
+        new Vector2(-1, 0),                 // 왼쪽
+        new Vector2(1, 0),                  // 오른쪽
+        new Vector2(-1, 1) * mDiagonal,     // 왼쪽 위 대각선
+        new Vector2(1, 1)* mDiagonal,       // 오른쪽 위 대각선
+        new Vector2(-1, -1)* mDiagonal,     // 왼쪽 아래 대각선
+        new Vector2(1, -1)* mDiagonal       // 오른쪽 아래 대각선
+        };
+
     }
 
     private void Update()
     {
+        
 
         #region PlayerMove
         Vector2 value = Vector2.zero;
@@ -147,27 +168,48 @@ public class InputScript : MonoBehaviour
 
         #endregion
 
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if (mPlayerStatus.state != PlayerStatus.StateType.Roll)
+            {
+                mPlayerStatus.state = PlayerStatus.StateType.Roll;
+                mbMoveStop = true;
 
-        if (mInputVec.magnitude > 0)
-            GetComponent<PlayerStatus>().state = PlayerStatus.StateType.Walking;
-        else
-            GetComponent<PlayerStatus>().state = PlayerStatus.StateType.Idle;
+                mRigidbody.AddForce(mDirectionValue[(int)mDirection] * mRollFower, ForceMode2D.Impulse);
+            }            
+        }
 
+
+
+        if (!mbMoveStop)
+        {
+            if (mInputVec.magnitude > 0)
+                mPlayerStatus.state = PlayerStatus.StateType.Walking;
+            else
+                mPlayerStatus.state = PlayerStatus.StateType.Idle;
+        }
+        
 
     }
     private void FixedUpdate()
     {
+        if(!mbMoveStop)
+        {
+            Vector2 pos = mInputVec.normalized * mSpeed * Time.fixedDeltaTime;
+            mRigidbody.MovePosition(mRigidbody.position + pos);
+        }
 
-        Vector2 pos = mInputVec.normalized * mSpeed * Time.fixedDeltaTime;
-
-
-        mRigidbody.MovePosition(mRigidbody.position + pos);
-
-
-      
 
     }
 
+    public void IsMove()
+    {
+        mbMoveStop = false;
+    }
+    public void MoveStop()
+    {
+        mbMoveStop = true;
+    }
 
     void AddDir(DirectionType _dir)
     {

@@ -3958,13 +3958,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_182
+      name: Roll_0
       rect:
         serializedVersion: 2
         x: 22
-        y: 542
+        y: 532
         width: 16
-        height: 18
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3979,13 +3979,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_183
+      name: Roll_1
       rect:
         serializedVersion: 2
         x: 40
-        y: 546
+        y: 532
         width: 16
-        height: 15
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4000,13 +4000,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_184
+      name: Roll_2
       rect:
         serializedVersion: 2
         x: 58
-        y: 542
+        y: 532
         width: 16
-        height: 16
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4021,13 +4021,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_185
+      name: Roll_3
       rect:
         serializedVersion: 2
         x: 76
-        y: 536
+        y: 532
         width: 14
-        height: 20
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4042,13 +4042,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_186
+      name: Roll_8
       rect:
         serializedVersion: 2
         x: 164
         y: 532
         width: 16
-        height: 19
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4273,13 +4273,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_197
+      name: Roll_4
       rect:
         serializedVersion: 2
         x: 92
         y: 532
         width: 18
-        height: 17
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4294,13 +4294,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_198
+      name: Roll_5
       rect:
         serializedVersion: 2
         x: 112
         y: 532
         width: 18
-        height: 14
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4315,13 +4315,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_199
+      name: Roll_6
       rect:
         serializedVersion: 2
         x: 132
         y: 532
         width: 14
-        height: 13
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4336,13 +4336,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_200
+      name: Roll_7
       rect:
         serializedVersion: 2
         x: 148
         y: 532
         width: 14
-        height: 14
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4546,13 +4546,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_210
+      name: Roll_9
       rect:
         serializedVersion: 2
         x: 22
-        y: 510
+        y: 498
         width: 24
-        height: 15
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4567,13 +4567,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_211
+      name: Roll_10
       rect:
         serializedVersion: 2
         x: 48
-        y: 512
+        y: 498
         width: 24
-        height: 14
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4588,13 +4588,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_212
+      name: Roll_11
       rect:
         serializedVersion: 2
         x: 74
-        y: 510
+        y: 498
         width: 24
-        height: 15
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4609,13 +4609,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_213
+      name: Roll_12
       rect:
         serializedVersion: 2
         x: 100
-        y: 504
+        y: 498
         width: 20
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4630,13 +4630,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_214
+      name: Roll_13
       rect:
         serializedVersion: 2
         x: 122
         y: 498
         width: 16
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4651,13 +4651,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_215
+      name: Roll_15
       rect:
         serializedVersion: 2
         x: 162
         y: 498
         width: 17
-        height: 15
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4672,13 +4672,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_216
+      name: Roll_16
       rect:
         serializedVersion: 2
         x: 181
         y: 498
         width: 14
-        height: 18
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4693,13 +4693,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_217
+      name: Roll_17
       rect:
         serializedVersion: 2
         x: 197
         y: 498
         width: 13
-        height: 20
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4924,13 +4924,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_228
+      name: Roll_14
       rect:
         serializedVersion: 2
         x: 140
         y: 498
         width: 20
-        height: 12
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5260,13 +5260,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_244
+      name: Roll_18
       rect:
         serializedVersion: 2
         x: 22
-        y: 475
+        y: 464
         width: 16
-        height: 17
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5281,13 +5281,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_245
+      name: Roll_19
       rect:
         serializedVersion: 2
         x: 40
-        y: 477
+        y: 464
         width: 16
-        height: 15
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5302,13 +5302,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_246
+      name: Roll_20
       rect:
         serializedVersion: 2
         x: 58
-        y: 479
+        y: 464
         width: 16
-        height: 13
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5323,13 +5323,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_247
+      name: Roll_21
       rect:
         serializedVersion: 2
         x: 76
-        y: 473
+        y: 464
         width: 16
-        height: 13
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5344,13 +5344,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_248
+      name: Roll_22
       rect:
         serializedVersion: 2
         x: 94
         y: 464
         width: 18
-        height: 16
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5365,13 +5365,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_249
+      name: Roll_25
       rect:
         serializedVersion: 2
         x: 154
         y: 464
         width: 16
-        height: 17
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5386,13 +5386,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_250
+      name: Roll_26
       rect:
         serializedVersion: 2
         x: 172
-        y: 465
+        y: 464
         width: 16
-        height: 19
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5428,13 +5428,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_252
+      name: Roll_23
       rect:
         serializedVersion: 2
         x: 114
         y: 464
         width: 20
-        height: 13
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5449,13 +5449,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_253
+      name: Roll_24
       rect:
         serializedVersion: 2
         x: 136
         y: 464
         width: 16
-        height: 15
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5722,13 +5722,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_266
+      name: Roll_27
       rect:
         serializedVersion: 2
         x: 22
-        y: 436
+        y: 429
         width: 19
-        height: 21
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5743,13 +5743,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_267
+      name: Roll_28
       rect:
         serializedVersion: 2
         x: 43
-        y: 440
+        y: 429
         width: 19
-        height: 18
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5764,13 +5764,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_268
+      name: Roll_29
       rect:
         serializedVersion: 2
         x: 64
-        y: 442
+        y: 429
         width: 20
-        height: 14
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5827,13 +5827,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_271
+      name: Roll_30
       rect:
         serializedVersion: 2
         x: 86
-        y: 436
+        y: 429
         width: 21
-        height: 16
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5848,13 +5848,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_272
+      name: Roll_31
       rect:
         serializedVersion: 2
         x: 109
         y: 429
         width: 16
-        height: 15
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5869,13 +5869,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_273
+      name: Roll_32
       rect:
         serializedVersion: 2
         x: 127
         y: 429
         width: 18
-        height: 12
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5890,13 +5890,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_274
+      name: Roll_33
       rect:
         serializedVersion: 2
         x: 147
         y: 429
         width: 16
-        height: 15
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5911,13 +5911,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_275
+      name: Roll_34
       rect:
         serializedVersion: 2
         x: 165
         y: 429
         width: 14
-        height: 19
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5932,13 +5932,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_276
+      name: Roll_35
       rect:
         serializedVersion: 2
         x: 181
         y: 429
         width: 13
-        height: 20
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -10053,6 +10053,42 @@ TextureImporter:
       Idle_7: 2012178766
       Idle_8: 1360487580
       Idle_9: 266457361
+      Roll_0: 323378893
+      Roll_1: 1583425099
+      Roll_10: -1614211063
+      Roll_11: 1446868002
+      Roll_12: 1900515721
+      Roll_13: 1416477117
+      Roll_14: -1835067450
+      Roll_15: -380944015
+      Roll_16: 807094970
+      Roll_17: -341672853
+      Roll_18: -2089618093
+      Roll_19: -135137296
+      Roll_2: 1426577327
+      Roll_20: -533863793
+      Roll_21: 1098150818
+      Roll_22: -138282411
+      Roll_23: -1713494334
+      Roll_24: 254144276
+      Roll_25: 411427731
+      Roll_26: -337204790
+      Roll_27: -1143655830
+      Roll_28: -513157137
+      Roll_29: 885886158
+      Roll_3: 1367182721
+      Roll_30: 680326199
+      Roll_31: 1109980167
+      Roll_32: -1652525097
+      Roll_33: 1542719726
+      Roll_34: 1947309686
+      Roll_35: 929457533
+      Roll_4: 1252015530
+      Roll_5: -1914401478
+      Roll_6: 203536297
+      Roll_7: -401016175
+      Roll_8: -396874820
+      Roll_9: 1672993896
       The Hunter_10: 373697253
       The Hunter_101: -257703802
       The Hunter_102: -1215984531
@@ -10131,11 +10167,6 @@ TextureImporter:
       The Hunter_18: 1910563132
       The Hunter_180: -694211530
       The Hunter_181: -1834304057
-      The Hunter_182: 323378893
-      The Hunter_183: 1583425099
-      The Hunter_184: 1426577327
-      The Hunter_185: 1367182721
-      The Hunter_186: -396874820
       The Hunter_187: 642020957
       The Hunter_188: -1790296107
       The Hunter_189: 265166167
@@ -10146,10 +10177,6 @@ TextureImporter:
       The Hunter_194: -538356319
       The Hunter_195: -32261016
       The Hunter_196: 2048587963
-      The Hunter_197: 1252015530
-      The Hunter_198: -1914401478
-      The Hunter_199: 203536297
-      The Hunter_200: -401016175
       The Hunter_201: 1580964372
       The Hunter_202: -174232170
       The Hunter_203: -2122919851
@@ -10159,14 +10186,6 @@ TextureImporter:
       The Hunter_207: -1205879669
       The Hunter_208: -2095082621
       The Hunter_209: -2010049314
-      The Hunter_210: 1672993896
-      The Hunter_211: -1614211063
-      The Hunter_212: 1446868002
-      The Hunter_213: 1900515721
-      The Hunter_214: 1416477117
-      The Hunter_215: -380944015
-      The Hunter_216: 807094970
-      The Hunter_217: -341672853
       The Hunter_218: -1423795659
       The Hunter_219: -844739047
       The Hunter_220: -1939528323
@@ -10177,7 +10196,6 @@ TextureImporter:
       The Hunter_225: 1586117726
       The Hunter_226: -1546542499
       The Hunter_227: -872774742
-      The Hunter_228: -1835067450
       The Hunter_229: -1242906914
       The Hunter_23: 2120889269
       The Hunter_230: -1570010990
@@ -10195,17 +10213,8 @@ TextureImporter:
       The Hunter_241: 1632251177
       The Hunter_242: -1101602325
       The Hunter_243: -519107394
-      The Hunter_244: -2089618093
-      The Hunter_245: -135137296
-      The Hunter_246: -533863793
-      The Hunter_247: 1098150818
-      The Hunter_248: -138282411
-      The Hunter_249: 411427731
       The Hunter_25: 2101874115
-      The Hunter_250: -337204790
       The Hunter_251: 848361014
-      The Hunter_252: -1713494334
-      The Hunter_253: 254144276
       The Hunter_254: 1629477262
       The Hunter_255: 2104647799
       The Hunter_256: 91609240
@@ -10219,18 +10228,9 @@ TextureImporter:
       The Hunter_263: -1036863457
       The Hunter_264: 1506348988
       The Hunter_265: -1107348320
-      The Hunter_266: -1143655830
-      The Hunter_267: -513157137
-      The Hunter_268: 885886158
       The Hunter_269: -905906167
       The Hunter_27: 1621229944
       The Hunter_270: -887922416
-      The Hunter_271: 680326199
-      The Hunter_272: 1109980167
-      The Hunter_273: -1652525097
-      The Hunter_274: 1542719726
-      The Hunter_275: 1947309686
-      The Hunter_276: 929457533
       The Hunter_277: -1822865385
       The Hunter_278: 1766672950
       The Hunter_279: 1580753788

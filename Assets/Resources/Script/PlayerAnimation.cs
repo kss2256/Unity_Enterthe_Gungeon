@@ -24,9 +24,13 @@ public class PlayerAnimation : MonoBehaviour
     private void Update()
     {
         
-        
         mCurState = GetComponent<PlayerStatus>().state;
         mInputVec = GetComponent<InputScript>().InputVec;
+     
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+          
+        }
 
         switch (mCurState)
         {
@@ -36,7 +40,7 @@ public class PlayerAnimation : MonoBehaviour
                 {
                     if(mPrevState != StateType.Idle)
                     {
-                        Vector2 vecDir = dir();
+                        Vector2 vecDir = animationDir();
                         mAnimator.SetBool("Walking", false);
                         mAnimator.SetFloat("IdleX", vecDir.x);
                         mAnimator.SetFloat("IdleY", vecDir.y);
@@ -51,6 +55,12 @@ public class PlayerAnimation : MonoBehaviour
                 }
                 break;
             case StateType.Roll:
+                {
+                    mAnimator.SetBool("Roll", true);
+                    Vector2 vecDir = animationDir();
+                    mAnimator.SetFloat("RollX", vecDir.x);
+                    mAnimator.SetFloat("RollY", vecDir.y);
+                }
                 break;
             default:
                 break;
@@ -71,7 +81,7 @@ public class PlayerAnimation : MonoBehaviour
     }
 
 
-    private Vector2 dir()
+    private Vector2 animationDir()
     {     
         Vector2 vecDir = Vector2.zero;
         switch (GetComponent<InputScript>().direction)
@@ -101,5 +111,14 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         return vecDir;
+    }
+
+
+
+    public void RollCallBack()
+    {
+        mAnimator.SetBool("Roll", false);
+        GetComponent<InputScript>().IsMove();
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 }

@@ -13,7 +13,7 @@ public class PlayerStatus : MonoBehaviour
     }
 
 
-    private StateType mState = StateType.Idle;
+    [SerializeField] private StateType mState = StateType.Idle;
 
 
     public StateType state
