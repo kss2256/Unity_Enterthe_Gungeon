@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4bdd0ff99554e294a8125134129c0202
+guid: 8b9a4fadcb5630240b18b820f2b5c7ca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 13
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BaseGun_0
+      name: test_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 18
-        height: 10
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e10ff5ef979937b41899c1b8d9e7f37a
-      internalID: -729230121
+      spriteID: 716da2cbd5a52284ab78b9e5be57d836
+      internalID: -1536853217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BaseGun_1
+      name: test_1
       rect:
         serializedVersion: 2
         x: 18
         y: 0
         width: 18
-        height: 10
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,8 +171,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20887addf52119946acf22aebbb87024
-      internalID: 1078195520
+      spriteID: 06ec08631a366754ea466ef148535e87
+      internalID: -191961341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8700ed79fcf65154aaf8f7b1e6d0494d
+      internalID: -2074049245
       vertices: []
       indices: 
       edges: []
@@ -188,8 +209,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BaseGun_0: -729230121
-      BaseGun_1: 1078195520
+      test_0: -1536853217
+      test_1: -191961341
+      test_2: -2074049245
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

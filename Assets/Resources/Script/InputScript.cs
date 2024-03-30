@@ -168,6 +168,12 @@ public class InputScript : MonoBehaviour
 
         #endregion
 
+        
+
+        
+
+
+
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             if (mPlayerStatus.state != PlayerStatus.StateType.Roll)
