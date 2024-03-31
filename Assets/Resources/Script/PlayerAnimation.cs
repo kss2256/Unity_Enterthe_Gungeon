@@ -11,8 +11,7 @@ public class PlayerAnimation : MonoBehaviour
     private SpriteRenderer mSpriteRenderer;
     private Animator mAnimator;
 
-    private StateType mCurState;
-    private StateType mPrevState;
+    private StateType mCurState;    
 
     private const float mRangeDegree = 22.5f;
 
@@ -29,27 +28,17 @@ public class PlayerAnimation : MonoBehaviour
         
         mCurState = GetComponent<PlayerStatus>().state;
         mInputVec = GetComponent<InputScript>().InputVec;
-     
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            GetComponent<PlayerStatus>().weapon = WeaponType.One_Handed;
-        }
-        
-       
-
+            
         switch (mCurState)
         {
             case StateType.None:
                 break;
             case StateType.Idle:
                 {
-                    if(mPrevState != StateType.Idle)
-                    {
-                    }                   
-                        Vector2 vecDir = animationDir();
-                        mAnimator.SetBool("Walking", false);
-                        mAnimator.SetFloat("IdleX", vecDir.x);
-                        mAnimator.SetFloat("IdleY", vecDir.y);
+                    Vector2 vecDir = animationDir();
+                    mAnimator.SetBool("Walking", false);
+                    mAnimator.SetFloat("IdleX", vecDir.x);
+                    mAnimator.SetFloat("IdleY", vecDir.y);
                 }
                 break;
             case StateType.Walking:
@@ -79,7 +68,7 @@ public class PlayerAnimation : MonoBehaviour
             default:
                 break;
         }
-        mPrevState = mCurState;
+       
         
     }
 

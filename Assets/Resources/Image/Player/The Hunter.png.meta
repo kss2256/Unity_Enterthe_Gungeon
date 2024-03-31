@@ -388,7 +388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_12
+      name: Hand
       rect:
         serializedVersion: 2
         x: 427
@@ -10037,6 +10037,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Hand: 1181575944
       Idle_0: 299448132
       Idle_1: -1811730477
       Idle_10: 738712261
@@ -10110,7 +10111,6 @@ TextureImporter:
       The Hunter_117: 874255467
       The Hunter_118: 1734617979
       The Hunter_119: 491829579
-      The Hunter_12: 1181575944
       The Hunter_120: 1137863749
       The Hunter_121: -696482818
       The Hunter_122: -731207420
