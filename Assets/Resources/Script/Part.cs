@@ -53,7 +53,7 @@ public class Part : MonoBehaviour
 
     }
 
-    private void LateUpdate()
+    protected virtual void LateUpdate()
     {
         if(mSpriteRenderer)
         mSpriteRenderer.flipX = !mbIsRightDir;
