@@ -11,31 +11,32 @@ public class Part : MonoBehaviour
         Weapon,
     }
 
+    private Vector3 mMouseDirPos;
+    private const int mDirtransform = -1;
+    private bool mbIsRightDir = true;
 
+    private SpriteRenderer mSpriteRenderer;
     private Transform mHandTr;
     private Transform mWeaponTr;
 
-
-    private void Awake()
+    public bool mouseIsRight
     {
-        mHandTr = transform.GetChild((int)PartList.Hand);
-        mWeaponTr = transform.GetChild((int)PartList.Weapon);
+        get { return mbIsRightDir; }
+    }
 
 
+    protected virtual void Start()
+    {
+        //mHandTr = transform.GetChild((int)PartList.Hand);
+        //mWeaponTr = transform.GetChild((int)PartList.Weapon);
+        mSpriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            mHandTr.gameObject.SetActive(true);
-        }
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            mHandTr.gameObject.SetActive(false);
-        }
+        //Player Left Right Cheak - mbIsRightDir;
+        playerDirCheak();
 
 
 
@@ -43,6 +44,54 @@ public class Part : MonoBehaviour
 
     }
 
+    protected virtual void FixedUpdate()
+    {
+
+        turnabout();
+      
+
+
+    }
+
+    private void LateUpdate()
+    {
+        if(mSpriteRenderer)
+        mSpriteRenderer.flipX = !mbIsRightDir;
+    }
+
+    private void playerDirCheak()
+    {
+       mMouseDirPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+       Transform playerTr = transform.GetComponentInParent<Player>().transform;
+       mMouseDirPos = mMouseDirPos - playerTr.position;
+
+        mbIsRightDir = mMouseDirPos.x > 0;
+
+    }
+
+    private void turnabout()
+    {
+
+        if (mouseIsRight)
+        {
+            if (transform.localPosition.x < 0)
+            {
+                Vector2 pos = transform.localPosition;
+                pos.x *= mDirtransform;
+                transform.localPosition = pos;
+            }
+        }
+        else
+        {
+            if (transform.localPosition.x > 0)
+            {
+                Vector2 pos = transform.localPosition;
+                pos.x *= mDirtransform;
+                transform.localPosition = pos;
+            }
+        }
+
+    }
 
 
 }
