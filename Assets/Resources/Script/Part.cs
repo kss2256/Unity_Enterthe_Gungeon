@@ -8,15 +8,18 @@ public class Part : MonoBehaviour
     public enum PartList
     {
         Hand,
+        Weapon,
     }
 
 
     private Transform mHandTr;
+    private Transform mWeaponTr;
 
 
     private void Awake()
     {
         mHandTr = transform.GetChild((int)PartList.Hand);
+        mWeaponTr = transform.GetChild((int)PartList.Weapon);
 
 
 
