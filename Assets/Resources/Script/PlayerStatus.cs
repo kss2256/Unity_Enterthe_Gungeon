@@ -23,6 +23,9 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private WeaponType mWeapon = WeaponType.None;
 
 
+    private bool mbAttack = false;
+    private bool mbReload = false;
+
     public StateType state
     {
         get { return mState; }
@@ -32,6 +35,16 @@ public class PlayerStatus : MonoBehaviour
     {
         get { return mWeapon; }
         set { mWeapon = value; }
+    }
+    public bool attack
+    {
+        get { return mbAttack; }
+        set { mbAttack = value; }
+    }
+    public bool reload
+    {
+        get { return mbReload; }
+        set { mbReload = value; }
     }
 
 }

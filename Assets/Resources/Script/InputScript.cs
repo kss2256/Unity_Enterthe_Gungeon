@@ -176,8 +176,10 @@ public class InputScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (mPlayerStatus.state != PlayerStatus.StateType.Roll)
+            if (mPlayerStatus.state != PlayerStatus.StateType.Roll &&
+                mPlayerStatus.state != PlayerStatus.StateType.Idle)
             {
+
                 mPlayerStatus.state = PlayerStatus.StateType.Roll;
                 GameObject.Find("Part").GetComponent<Part>().OffEqpmn();
                 mbMoveStop = true;
@@ -185,8 +187,21 @@ public class InputScript : MonoBehaviour
                 mRigidbody.AddForce(mDirectionValue[(int)mDirection] * mRollFower, ForceMode2D.Impulse);
             }            
         }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            if(!mPlayerStatus.attack && !mPlayerStatus.reload)
+            {
+                mPlayerStatus.attack = true;                
+            }
+        }
 
-
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (!mPlayerStatus.reload)
+            {
+                mPlayerStatus.reload = true;
+            }
+        }
 
         if (!mbMoveStop)
         {
@@ -195,7 +210,7 @@ public class InputScript : MonoBehaviour
             else
                 mPlayerStatus.state = PlayerStatus.StateType.Idle;
         }
-        
+
 
     }
     private void FixedUpdate()
