@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Part;
 
-public class Weapon : Part
+public class One_Handed : Part
 {
 
     private const float mReverseLeft = -180;
@@ -82,9 +82,7 @@ public class Weapon : Part
         }
 
         transform.localRotation = Quaternion.AngleAxis(angle + mCurrentDir, Vector3.forward);
-       
-
-      
+             
        
     }
 

@@ -182,5 +182,6 @@ public class PlayerAnimation : MonoBehaviour
         mAnimator.SetBool("Roll", false);
         GetComponent<InputScript>().IsMove();
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GameObject.Find("Part").GetComponent<Part>().OnEqpmn();
     }
 }

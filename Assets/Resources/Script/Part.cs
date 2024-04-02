@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerStatus;
 
 public class Part : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class Part : MonoBehaviour
     public enum PartList
     {
         Hand,
-        Weapon,
+        One_Handed,
+        Two_Handed,
     }
 
+    
     private Vector3 mMouseDirPos;
     private const int mDirtransform = -1;
     private bool mbIsRightDir = true;
@@ -25,11 +28,13 @@ public class Part : MonoBehaviour
     }
 
 
+
+
     protected virtual void Start()
     {
-        //mHandTr = transform.GetChild((int)PartList.Hand);
-        //mWeaponTr = transform.GetChild((int)PartList.Weapon);
+       
         mSpriteRenderer = GetComponent<SpriteRenderer>();
+        
 
     }
 
@@ -40,14 +45,22 @@ public class Part : MonoBehaviour
 
 
 
-
+        //Å×½ºÆ®¿ë Àåºñ Å» ºÎÂø
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            ClearEqpmn();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            InstEqpmn(PartList.One_Handed);
+        }
 
     }
 
     protected virtual void FixedUpdate()
     {
 
-        turnabout();
+        
       
 
 
@@ -55,7 +68,9 @@ public class Part : MonoBehaviour
 
     protected virtual void LateUpdate()
     {
-        if(mSpriteRenderer)
+        turnabout();
+
+        if (mSpriteRenderer)
         mSpriteRenderer.flipX = !mbIsRightDir;
     }
 
@@ -92,6 +107,43 @@ public class Part : MonoBehaviour
         }
 
     }
+
+
+    public void ClearEqpmn()
+    {
+        OffEqpmn();
+        transform.parent.GetComponent<PlayerStatus>().weapon = WeaponType.None;
+    }
+
+    public void InstEqpmn(PartList _part)
+    {
+        mHandTr = transform.GetChild((int)PartList.Hand);
+        mWeaponTr = transform.GetChild((int)_part);
+
+        mHandTr.gameObject.SetActive(true);
+        mWeaponTr.gameObject.SetActive(true);
+
+        transform.parent.GetComponent<PlayerStatus>().weapon = (WeaponType)_part;  
+
+        
+    }
+
+
+    public void OnEqpmn()
+    {
+        if (mHandTr != null)
+            mHandTr.gameObject.SetActive(true);
+        if (mWeaponTr != null)
+            mWeaponTr.gameObject.SetActive(true);
+    }
+    public void OffEqpmn()
+    {
+        if (mHandTr != null)
+            mHandTr.gameObject.SetActive(false);
+        if (mWeaponTr != null)
+            mWeaponTr.gameObject.SetActive(false);
+    }
+
 
 
 }

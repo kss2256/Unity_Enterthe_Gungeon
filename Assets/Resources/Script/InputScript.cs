@@ -179,6 +179,7 @@ public class InputScript : MonoBehaviour
             if (mPlayerStatus.state != PlayerStatus.StateType.Roll)
             {
                 mPlayerStatus.state = PlayerStatus.StateType.Roll;
+                GameObject.Find("Part").GetComponent<Part>().OffEqpmn();
                 mbMoveStop = true;
 
                 mRigidbody.AddForce(mDirectionValue[(int)mDirection] * mRollFower, ForceMode2D.Impulse);
