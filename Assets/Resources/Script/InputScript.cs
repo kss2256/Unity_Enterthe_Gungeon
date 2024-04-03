@@ -191,7 +191,8 @@ public class InputScript : MonoBehaviour
         {
             if(!mPlayerStatus.attack && !mPlayerStatus.reload)
             {
-                mPlayerStatus.attack = true;                
+                mPlayerStatus.attack = true;
+                Camera.main.GetComponent<CameraShake>().CameraShaking();
             }
         }
 
@@ -220,7 +221,7 @@ public class InputScript : MonoBehaviour
             Vector2 pos = mInputVec.normalized * mSpeed * Time.fixedDeltaTime;
             mRigidbody.MovePosition(mRigidbody.position + pos);
         }
-
+      
 
     }
 

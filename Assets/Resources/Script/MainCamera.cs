@@ -34,12 +34,13 @@ public class MainCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (null != m_Player)
+        if (null != m_Player && !(GetComponent<CameraShake>().IsShakeing))
         {
             m_Pos = m_PlayerTr.position;
             m_Pos.z = -10;
             transform.position = m_Pos;           
         }
+
     }
     public void TargetDetection()
     {
