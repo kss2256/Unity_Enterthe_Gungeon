@@ -10,6 +10,7 @@ public class CameraShake : MonoBehaviour
     [SerializeField] private float mShakeTime = 0.5f;
 
     private Vector3 mFixPos;
+    private Vector3 mShakePos;
     private bool mbIsShakeing = false;
 
 
@@ -23,14 +24,18 @@ public class CameraShake : MonoBehaviour
         mFixPos = transform.position;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
 
         if (mbIsShakeing)
         {
+
+            mShakePos = transform.position;
+
             float offsetX = mShakeDistance * Mathf.Cos(Time.time * mShakeSpeed);
             float offsetY = mShakeDistance * Mathf.Sin(Time.time * mShakeSpeed);
-            transform.position = mFixPos + new Vector3(offsetX, offsetY, 0);
+            transform.position = mShakePos + new Vector3(offsetX, offsetY, 0);
+
         }
 
 
@@ -40,6 +45,7 @@ public class CameraShake : MonoBehaviour
     {
         mbIsShakeing = true;
         mFixPos = transform.position;
+       
         StartCoroutine(cameraShaking());
 
     }
@@ -49,7 +55,7 @@ public class CameraShake : MonoBehaviour
 
         yield return new WaitForSeconds(mShakeTime);
 
-
+    
         mbIsShakeing = false;
         transform.position = mFixPos;
 
