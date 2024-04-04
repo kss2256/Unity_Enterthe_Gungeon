@@ -811,6 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f836b224332244baa9760343529c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mPlayer: {fileID: 1383417083}
 --- !u!1 &927708155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1075,7 @@ GameObject:
   - component: {fileID: 1383417087}
   - component: {fileID: 1383417091}
   - component: {fileID: 1383417092}
+  - component: {fileID: 1383417093}
   m_Layer: 0
   m_Name: The Hunter
   m_TagString: Player
@@ -1251,6 +1253,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mState: 1
   mWeapon: 0
+--- !u!114 &1383417093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383417083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b122d9db4535943a16fad212e51d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mBasicBulletPreFab: {fileID: 4147111945730580495, guid: 83b577508e655954d8ba2533995c7ffc, type: 3}
 --- !u!1 &1524063536
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,10 @@ public class Part : MonoBehaviour
         get { return mbIsRightDir; }
     }
 
+    public Transform weaponTr
+    {
+        get { return mWeaponTr; }
+    }
 
 
 

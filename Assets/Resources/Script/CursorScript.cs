@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class CursorScript : MonoBehaviour
-{ 
+{
 
 
 
@@ -21,11 +21,14 @@ public class CursorScript : MonoBehaviour
 
 
     private void Update()
-    {        
+    {
         transform.position = Input.mousePosition;
+       
+
+
     }
     
-
+   
 
 
 }
