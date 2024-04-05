@@ -533,8 +533,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mShakeDistance: 0.05
-  mShakeSpeed: 100
-  mShakeTime: 0.3
+  mShakeSpeed: 80
+  mShakeTime: 0.15
 --- !u!1 &540642899
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0f836b224332244baa9760343529c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mPlayer: {fileID: 1383417083}
 --- !u!1 &927708155
 GameObject:
   m_ObjectHideFlags: 0

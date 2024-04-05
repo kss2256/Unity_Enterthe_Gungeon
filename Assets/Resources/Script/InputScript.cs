@@ -194,7 +194,7 @@ public class InputScript : MonoBehaviour
                 mPlayerStatus.attack = true;
                 Camera.main.GetComponent<CameraShake>().CameraShaking();
                 
-                GetComponent<Shoot>().BulletInit(mDirectionValue[(int)mDirection]);
+                GetComponent<Shoot>().BulletInit();
             }
         }
 
