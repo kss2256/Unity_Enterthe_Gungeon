@@ -9,10 +9,11 @@ public class MainCamera : MonoBehaviour
     
     private GameObject m_Player = null;
     private Transform m_PlayerTr = null;
-    private Vector3 m_Pos = Vector2.zero;
+    private Vector3 m_Pos = Vector3.zero;
+    Vector3 mCenterPos;
+    Vector3 mMousePos;
+    Vector3 mMovePos;
 
-
-    
     [SerializeField]    
     private string m_TargetName = "";
     private bool mbIsTarget = false;
@@ -36,16 +37,17 @@ public class MainCamera : MonoBehaviour
         {
             TargetDetection();
         }
-
+        
     }
 
     private void LateUpdate()
     {
         if (mbIsTarget)
         {
+            CameraMove();
             m_Pos = m_PlayerTr.position;
             m_Pos.z = -10;
-            transform.position = m_Pos;           
+            transform.position = m_Pos + mMovePos;           
         }
 
     }
@@ -60,6 +62,16 @@ public class MainCamera : MonoBehaviour
     {
         m_TargetName = _targetName;
         TargetDetection();
+    }
+
+    public void CameraMove()
+    {
+        mCenterPos = m_PlayerTr.position;
+        mMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        mMovePos = mMousePos - mCenterPos;
+        mMovePos = mMovePos / 4;
+        mMovePos.z = 0;
     }
 
 

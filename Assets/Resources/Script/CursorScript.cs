@@ -5,9 +5,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 public class CursorScript : MonoBehaviour
 {
 
+    
 
 
 
@@ -15,8 +17,8 @@ public class CursorScript : MonoBehaviour
     {
 
         Cursor.visible = false;
-
-
+        
+       
     }
 
 
@@ -28,6 +30,8 @@ public class CursorScript : MonoBehaviour
 
     }
     
+
+
    
 
 

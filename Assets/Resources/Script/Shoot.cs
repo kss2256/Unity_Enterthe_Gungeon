@@ -63,7 +63,7 @@ public class Shoot : MonoBehaviour
        
 
 
-        Debug.Log(mBulletQue.Count);
+       
         StartCoroutine(ReturnBullet(bullet));
        
     }
