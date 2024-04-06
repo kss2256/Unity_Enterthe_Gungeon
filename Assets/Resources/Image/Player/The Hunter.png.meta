@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_4
+      name: One_Idle_0
       rect:
         serializedVersion: 2
         x: 154
@@ -241,13 +241,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_5
+      name: One_Idle_1
       rect:
         serializedVersion: 2
         x: 170
         y: 792
         width: 14
-        height: 21
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,13 +262,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_6
+      name: One_Idle_2
       rect:
         serializedVersion: 2
         x: 186
         y: 792
         width: 14
-        height: 21
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_7
+      name: One_Idle_3
       rect:
         serializedVersion: 2
         x: 202
@@ -619,7 +619,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_23
+      name: One_Idle_4
       rect:
         serializedVersion: 2
         x: 154
@@ -640,13 +640,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_24
+      name: One_Idle_5
       rect:
         serializedVersion: 2
         x: 169
         y: 764
         width: 14
-        height: 21
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -661,13 +661,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_25
+      name: One_Idle_6
       rect:
         serializedVersion: 2
         x: 185
         y: 764
         width: 14
-        height: 21
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -682,7 +682,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_26
+      name: One_Idle_7
       rect:
         serializedVersion: 2
         x: 201
@@ -955,7 +955,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_39
+      name: One_Idle_8
       rect:
         serializedVersion: 2
         x: 154
@@ -976,13 +976,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_40
+      name: One_Idle_9
       rect:
         serializedVersion: 2
         x: 170
         y: 736
         width: 14
-        height: 21
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -997,13 +997,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_41
+      name: One_Idle_10
       rect:
         serializedVersion: 2
         x: 186
         y: 736
         width: 14
-        height: 21
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1018,7 +1018,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_42
+      name: One_Idle_11
       rect:
         serializedVersion: 2
         x: 202
@@ -1291,7 +1291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_55
+      name: One_Idle_12
       rect:
         serializedVersion: 2
         x: 154
@@ -1312,13 +1312,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_56
+      name: One_Idle_13
       rect:
         serializedVersion: 2
         x: 169
         y: 708
         width: 13
-        height: 21
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1333,13 +1333,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_57
+      name: One_Idle_14
       rect:
         serializedVersion: 2
         x: 184
         y: 708
         width: 13
-        height: 21
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1354,7 +1354,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_58
+      name: One_Idle_15
       rect:
         serializedVersion: 2
         x: 199
@@ -1669,13 +1669,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_73
+      name: One_Walking_0
       rect:
         serializedVersion: 2
         x: 154
-        y: 669
+        y: 668
         width: 14
-        height: 22
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1690,13 +1690,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_74
+      name: One_Walking_1
       rect:
         serializedVersion: 2
         x: 170
         y: 668
         width: 14
-        height: 22
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1711,13 +1711,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_75
+      name: One_Walking_2
       rect:
         serializedVersion: 2
         x: 186
         y: 668
         width: 14
-        height: 21
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1732,13 +1732,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_76
+      name: One_Walking_3
       rect:
         serializedVersion: 2
         x: 202
-        y: 669
+        y: 668
         width: 14
-        height: 22
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1753,13 +1753,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_77
+      name: One_Walking_4
       rect:
         serializedVersion: 2
         x: 218
         y: 668
         width: 14
-        height: 22
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1774,13 +1774,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_78
+      name: One_Walking_5
       rect:
         serializedVersion: 2
         x: 234
         y: 668
         width: 14
-        height: 21
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2257,13 +2257,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_101
+      name: One_Walking_6
       rect:
         serializedVersion: 2
         x: 154
-        y: 641
+        y: 638
         width: 13
-        height: 21
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2278,13 +2278,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_102
+      name: One_Walking_7
       rect:
         serializedVersion: 2
         x: 169
-        y: 639
+        y: 638
         width: 15
-        height: 23
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2299,13 +2299,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_103
+      name: One_Walking_8
       rect:
         serializedVersion: 2
         x: 186
         y: 638
         width: 15
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2320,13 +2320,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_104
+      name: One_Walking_9
       rect:
         serializedVersion: 2
         x: 203
-        y: 641
+        y: 638
         width: 13
-        height: 21
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2341,13 +2341,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_105
+      name: One_Walking_10
       rect:
         serializedVersion: 2
         x: 218
         y: 638
         width: 14
-        height: 23
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2362,13 +2362,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_106
+      name: One_Walking_11
       rect:
         serializedVersion: 2
         x: 234
         y: 638
         width: 14
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2845,13 +2845,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_129
+      name: One_Walking_12
       rect:
         serializedVersion: 2
         x: 154
-        y: 610
+        y: 608
         width: 14
-        height: 22
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2866,13 +2866,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_130
+      name: One_Walking_13
       rect:
         serializedVersion: 2
         x: 170
         y: 608
         width: 14
-        height: 22
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2887,13 +2887,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_131
+      name: One_Walking_14
       rect:
         serializedVersion: 2
         x: 186
         y: 608
         width: 14
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2908,13 +2908,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_132
+      name: One_Walking_15
       rect:
         serializedVersion: 2
         x: 202
-        y: 610
+        y: 608
         width: 14
-        height: 22
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2929,13 +2929,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_133
+      name: One_Walking_16
       rect:
         serializedVersion: 2
         x: 218
         y: 608
         width: 14
-        height: 22
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2950,13 +2950,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_134
+      name: One_Walking_17
       rect:
         serializedVersion: 2
         x: 234
         y: 608
         width: 14
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3433,13 +3433,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_157
+      name: One_Walking_18
       rect:
         serializedVersion: 2
         x: 154
-        y: 581
+        y: 578
         width: 13
-        height: 21
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3454,13 +3454,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_158
+      name: One_Walking_19
       rect:
         serializedVersion: 2
         x: 169
         y: 578
         width: 13
-        height: 22
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3475,13 +3475,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_159
+      name: One_Walking_20
       rect:
         serializedVersion: 2
         x: 184
         y: 578
         width: 13
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3496,13 +3496,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_160
+      name: One_Walking_21
       rect:
         serializedVersion: 2
         x: 199
-        y: 582
+        y: 578
         width: 13
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3517,13 +3517,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_161
+      name: One_Walking_22
       rect:
         serializedVersion: 2
         x: 214
         y: 578
         width: 13
-        height: 22
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3538,13 +3538,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Hunter_162
+      name: One_Walking_23
       rect:
         serializedVersion: 2
         x: 229
         y: 578
         width: 13
-        height: 20
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -10054,6 +10054,46 @@ TextureImporter:
       Idle_7: 2012178766
       Idle_8: 1360487580
       Idle_9: 266457361
+      One_Idle_0: 932722384
+      One_Idle_1: 272416632
+      One_Idle_10: -1510480473
+      One_Idle_11: 803846735
+      One_Idle_12: -458661853
+      One_Idle_13: -1462367549
+      One_Idle_14: -1270621823
+      One_Idle_15: -1397899323
+      One_Idle_2: 1719407413
+      One_Idle_3: -358789140
+      One_Idle_4: 2120889269
+      One_Idle_5: 109447355
+      One_Idle_6: 2101874115
+      One_Idle_7: 1917153403
+      One_Idle_8: -4111748
+      One_Idle_9: 2042609896
+      One_Walking_0: -777056965
+      One_Walking_1: 386556481
+      One_Walking_10: 2075205017
+      One_Walking_11: 1421163635
+      One_Walking_12: -2056904409
+      One_Walking_13: -1651764319
+      One_Walking_14: -1050798220
+      One_Walking_15: 1606294575
+      One_Walking_16: -176901220
+      One_Walking_17: 448807388
+      One_Walking_18: -873078192
+      One_Walking_19: -517188396
+      One_Walking_2: -185887073
+      One_Walking_20: 1179046896
+      One_Walking_21: -799639327
+      One_Walking_22: 658329499
+      One_Walking_23: 2001568409
+      One_Walking_3: -647332204
+      One_Walking_4: -753298011
+      One_Walking_5: 702212552
+      One_Walking_6: -257703802
+      One_Walking_7: -1215984531
+      One_Walking_8: 1766846634
+      One_Walking_9: 1207947203
       Roll_0: 323378893
       Roll_1: 1583425099
       Roll_10: -1614211063
@@ -10091,12 +10131,6 @@ TextureImporter:
       Roll_8: -396874820
       Roll_9: 1672993896
       The Hunter_10: 373697253
-      The Hunter_101: -257703802
-      The Hunter_102: -1215984531
-      The Hunter_103: 1766846634
-      The Hunter_104: 1207947203
-      The Hunter_105: 2075205017
-      The Hunter_106: 1421163635
       The Hunter_107: -696092070
       The Hunter_108: -1236235251
       The Hunter_109: -1785669795
@@ -10114,13 +10148,7 @@ TextureImporter:
       The Hunter_120: 1137863749
       The Hunter_121: -696482818
       The Hunter_122: -731207420
-      The Hunter_129: -2056904409
       The Hunter_13: 518920591
-      The Hunter_130: -1651764319
-      The Hunter_131: -1050798220
-      The Hunter_132: 1606294575
-      The Hunter_133: -176901220
-      The Hunter_134: 448807388
       The Hunter_135: -1838577979
       The Hunter_136: -125508814
       The Hunter_137: 2046849637
@@ -10139,13 +10167,7 @@ TextureImporter:
       The Hunter_149: -1397163530
       The Hunter_15: -1981450520
       The Hunter_150: 2119222168
-      The Hunter_157: -873078192
-      The Hunter_158: -517188396
-      The Hunter_159: 1179046896
       The Hunter_16: 644866799
-      The Hunter_160: -799639327
-      The Hunter_161: 658329499
-      The Hunter_162: 2001568409
       The Hunter_163: 1177199978
       The Hunter_164: 50621619
       The Hunter_165: -2139476974
@@ -10197,7 +10219,6 @@ TextureImporter:
       The Hunter_226: -1546542499
       The Hunter_227: -872774742
       The Hunter_229: -1242906914
-      The Hunter_23: 2120889269
       The Hunter_230: -1570010990
       The Hunter_231: -1237521990
       The Hunter_232: 1387970255
@@ -10208,12 +10229,10 @@ TextureImporter:
       The Hunter_237: -2048059992
       The Hunter_238: 339544812
       The Hunter_239: -1711966641
-      The Hunter_24: 109447355
       The Hunter_240: -941979649
       The Hunter_241: 1632251177
       The Hunter_242: -1101602325
       The Hunter_243: -519107394
-      The Hunter_25: 2101874115
       The Hunter_251: 848361014
       The Hunter_254: 1629477262
       The Hunter_255: 2104647799
@@ -10221,7 +10240,6 @@ TextureImporter:
       The Hunter_257: 1835248659
       The Hunter_258: 61633865
       The Hunter_259: 922031997
-      The Hunter_26: 1917153403
       The Hunter_260: -2123020422
       The Hunter_261: 764872152
       The Hunter_262: 795912315
@@ -10351,7 +10369,6 @@ TextureImporter:
       The Hunter_387: 792797955
       The Hunter_388: -2071993456
       The Hunter_389: -1310869475
-      The Hunter_39: -4111748
       The Hunter_390: 1075763206
       The Hunter_391: 961068178
       The Hunter_392: 1525957984
@@ -10362,8 +10379,6 @@ TextureImporter:
       The Hunter_397: -812053015
       The Hunter_398: -1504378872
       The Hunter_399: -426857854
-      The Hunter_4: 932722384
-      The Hunter_40: 2042609896
       The Hunter_400: -1452246
       The Hunter_401: 1485023475
       The Hunter_402: 1673681725
@@ -10374,7 +10389,6 @@ TextureImporter:
       The Hunter_407: -25349868
       The Hunter_408: -164106305
       The Hunter_409: -1673410421
-      The Hunter_41: -1510480473
       The Hunter_410: 2026060110
       The Hunter_411: -1403876335
       The Hunter_412: -709480883
@@ -10385,7 +10399,6 @@ TextureImporter:
       The Hunter_417: -1767626262
       The Hunter_418: 837398414
       The Hunter_419: -975886928
-      The Hunter_42: 803846735
       The Hunter_420: -641085483
       The Hunter_421: -492372903
       The Hunter_422: -1285897962
@@ -10444,14 +10457,8 @@ TextureImporter:
       The Hunter_470: -1591706880
       The Hunter_48: -1047222482
       The Hunter_49: 1562103464
-      The Hunter_5: 272416632
       The Hunter_50: -310035440
-      The Hunter_55: -458661853
-      The Hunter_56: -1462367549
-      The Hunter_57: -1270621823
-      The Hunter_58: -1397899323
       The Hunter_59: 1830992373
-      The Hunter_6: 1719407413
       The Hunter_60: 1311505708
       The Hunter_61: 1667328232
       The Hunter_62: -240505334
@@ -10459,13 +10466,6 @@ TextureImporter:
       The Hunter_64: -2091418474
       The Hunter_65: -1297310789
       The Hunter_66: 432718963
-      The Hunter_7: -358789140
-      The Hunter_73: -777056965
-      The Hunter_74: 386556481
-      The Hunter_75: -185887073
-      The Hunter_76: -647332204
-      The Hunter_77: -753298011
-      The Hunter_78: 702212552
       The Hunter_79: 849705962
       The Hunter_8: -1297678960
       The Hunter_80: -930444972

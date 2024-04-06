@@ -121,6 +121,19 @@ public class Part : MonoBehaviour
 
     public void InstEqpmn(PartList _part)
     {
+        if(_part == PartList.One_Handed)
+        {
+            Animator ani = Engine.mInstant.player.GetComponent<Animator>();
+            ani.runtimeAnimatorController =
+                (RuntimeAnimatorController)Resources.Load
+                ("Animation\\Player\\The Hunter\\One_Hand");
+        }
+        else if (_part == PartList.Two_Handed)
+        {
+            Debug.Log("두손 무기");
+        }
+
+
         mHandTr = transform.GetChild((int)PartList.Hand);
         mWeaponTr = transform.GetChild((int)_part);
 
