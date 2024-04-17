@@ -19,12 +19,19 @@ public class BulletKin : Enemy
 
         if (Input.GetKeyDown(KeyCode.N))
         {
-            mGunObject.GetComponent<Animator>().SetTrigger("Attack");
+            Shoot();
         }
 
     }
 
 
+    
 
+
+    private void Shoot()
+    {
+        mGunObject.GetComponent<Animator>().SetTrigger("Attack");
+
+    }
 
 }
