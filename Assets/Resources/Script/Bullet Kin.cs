@@ -7,11 +7,12 @@ public class BulletKin : Enemy
 {
 
     [SerializeField]
-    GameObject mHandObject;
+    GameObject handObject;
 
     [SerializeField]
-    GameObject mGunObject;
+    GameObject gunObject;
 
+    
 
 
     protected override void Update()
@@ -22,15 +23,17 @@ public class BulletKin : Enemy
             Shoot();
         }
 
+
+        base.Update();
     }
 
 
-    
+
 
 
     private void Shoot()
     {
-        mGunObject.GetComponent<Animator>().SetTrigger("Attack");
+        gunObject.GetComponent<Animator>().SetTrigger("Attack");
 
     }
 

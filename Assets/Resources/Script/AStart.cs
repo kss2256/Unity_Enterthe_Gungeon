@@ -10,172 +10,165 @@ using UnityEngine.XR;
 [System.Serializable]
 public class Node
 {
-    public Node parentNode;
-    public int x, y;
-    public bool bIsWall;
+    public Node(bool _isWall, int _x, int _y) { isWall = _isWall; x = _x; y = _y; }
 
-    public int g, h, f;
+    public bool isWall;
+    public Node ParentNode;
 
-    public Node(int x, int y, bool bIsWall)
-    {
-        this.x = x;
-        this.y = y;
-        this.bIsWall = bIsWall;
-    }
+    // G : 시작으로부터 이동했던 거리, H : |가로|+|세로| 장애물 무시하여 목표까지의 거리, F : G + H
+    public int x, y, G, H;
+    public int F { get { return G + H; } }
 }
+
+
 
 public class AStart : MonoBehaviour
 {
-    public Vector2Int startPos, targetPos;
-    public List<Node> finalNodeList;
+    public Vector2Int bottomLeft, topRight, startPos, targetPos;
+    public List<Node> FinalNodeList;
+    public bool allowDiagonal, dontCrossCorner;
 
-    int fieldX, fieldY;
-    bool moveX, moveY;      //음수일 경우 true로 해주고 fieldx,y에 절대값을 씌운다
-    Node[,] fieldArray;
-    Node startNode, targetNode, curNode;
-    List<Node> openList, closeList;
+    int sizeX, sizeY;
+    Node[,] NodeArray;
+    Node StartNode, TargetNode, CurNode;
+    List<Node> OpenList, ClosedList;
+
+    public List<Vector2> moveVec;
 
 
-    private void Update()
+    public void PathFind(Vector2 start, Vector2 target)
     {
-        
-        if(Input.GetMouseButtonDown(0))
+
+        TargetFindPos(start, target);
+
+
+        // NodeArray의 크기 정해주고, isWall, x, y 대입
+        sizeX = Mathf.Abs(topRight.x - bottomLeft.x) + 1;
+        sizeY = Mathf.Abs(topRight.y - bottomLeft.y) + 1;
+        NodeArray = new Node[sizeX, sizeY];
+
+        for (int i = bottomLeft.x; i <= topRight.x; i++)
         {
-            Debug.Log("마우스 딸깍");
-            Vector3 targetpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 monpos = Camera.main.WorldToScreenPoint(transform.position);
-            Vector3 pos = Camera.main.ScreenToWorldPoint(monpos);
-
-
-            startPos = new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y));
-            targetPos = new Vector2Int(Mathf.RoundToInt(targetpos.x), Mathf.RoundToInt(targetpos.y));
-            PathFind();
-        }
-
-
-    }
-
-
-    public void PathFind()
-    {
-        //필드 사이즈 = 타겟위치 - 출발위치 사각형을 그릴것 인데 +1을 더해줘야함. 
-        fieldX = targetPos.x - startPos.x + 1;
-        fieldY = targetPos.y - startPos.y + 1;
-
-
-        //필드의 크기 2차원 배열로 생성후 x,y방향으로 칸칸별로 node를 초기화 해줌.
-        fieldArray = new Node[fieldX, fieldY];
-
-        for (int col = 0; col < fieldX; col++)
-        {
-            for (int row = 0; row < fieldY; row++)
+            for (int j = bottomLeft.y; j <= topRight.y; j++)
             {
-                bool wall = false;
+                bool isWall = false;
 
-                Collider2D[] colliders = Physics2D.OverlapCircleAll
-                    (new Vector2(col + startPos.x, row + startPos.y), 0.4f);
 
-                for (int i = 0; i < colliders.Length; i++)
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(i, j), 0.4f);
+
+                for (int k = 0; k < colliders.Length; k++)
                 {
-                    Collider2D collider = colliders[i];
-                    if (collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
-                        wall = true;
+                    Collider2D col = colliders[k];
+                    if (col.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                    {
+                        isWall = true;
+                        break;
+                    }
                 }
 
-                fieldArray[col, row] = new Node(col + startPos.x, row + startPos.y, wall);
+                NodeArray[i - bottomLeft.x, j - bottomLeft.y] = new Node(isWall, i, j);
             }
         }
+
 
         // 시작과 끝 노드, 열린리스트와 닫힌리스트, 마지막리스트 초기화
-        startNode = fieldArray[startPos.x, startPos.y];
-        targetNode = fieldArray[targetPos.x, targetPos.y];
+        StartNode = NodeArray[startPos.x - bottomLeft.x, startPos.y - bottomLeft.y];
+        TargetNode = NodeArray[targetPos.x - bottomLeft.x, targetPos.y - bottomLeft.y];
 
-        openList = new List<Node> { startNode };
-        closeList = new List<Node>();
-        finalNodeList = new List<Node>();
+        OpenList = new List<Node>() { StartNode };
+        ClosedList = new List<Node>();
+        FinalNodeList = new List<Node>();
 
 
-        while (openList.Count > 0)
+        while (OpenList.Count > 0)
         {
-            //curNode 지정
-            curNode = openList[0];
-            //f = g + h 에서 h의 값이 작은걸로
-            for (int i = 1; i < openList.Count; i++)
+            // 열린리스트 중 가장 F가 작고 F가 같다면 H가 작은 걸 현재노드로 하고 열린리스트에서 닫힌리스트로 옮기기
+            CurNode = OpenList[0];
+            for (int i = 1; i < OpenList.Count; i++)
+                if (OpenList[i].F <= CurNode.F && OpenList[i].H < CurNode.H) CurNode = OpenList[i];
+
+            OpenList.Remove(CurNode);
+            ClosedList.Add(CurNode);
+
+
+            // 마지막노드에 도착하면 리버스
+            if (CurNode == TargetNode)
             {
-                if (openList[i].f <= curNode.f && openList[i].h < curNode.h)
-                    curNode = openList[i];
-            }
-            openList.Remove(curNode);
-            closeList.Add(curNode);
-
-
-            // cur노드가 마지막 노드에 도달했다면
-            if (curNode == targetNode)
-            {
-                //노드를 생성해서 파이널리스트 노드에 거꾸로 올라가면서 채워준다. parentNode
-                Node TargetCurNode = targetNode;
-                while (TargetCurNode != startNode)
+                Node TargetCurNode = TargetNode;
+                while (TargetCurNode != StartNode)
                 {
-                    finalNodeList.Add(TargetCurNode);
-                    TargetCurNode = TargetCurNode.parentNode;
+                    FinalNodeList.Add(TargetCurNode);
+                    TargetCurNode = TargetCurNode.ParentNode;
                 }
-                //마지막으로 시작 노드를 넣어주고 데이터 순서를 뒤바꿔준다.
-                finalNodeList.Add(startNode);
-                finalNodeList.Reverse();
+                FinalNodeList.Add(StartNode);
+                FinalNodeList.Reverse();
 
-                //확인용
-                for (int i = 0; i < finalNodeList.Count; i++)
+                for (int i = 0; i < FinalNodeList.Count; i++) 
                 {
-                    Debug.Log(i + "번째는 " + finalNodeList[i].x + ", " + finalNodeList[i].y);
-                    return;
+                    Debug.Log(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
+                    moveVec.Add(new Vector2(FinalNodeList[i].x, FinalNodeList[i].y));
                 }
-                
+                return;
             }
+
+
+
 
             // ↑ → ↓ ←
-            OpenListAdd(curNode.x, curNode.y + 1);
-            OpenListAdd(curNode.x + 1, curNode.y);
-            OpenListAdd(curNode.x, curNode.y - 1);
-            OpenListAdd(curNode.x - 1, curNode.y);
-
+            OpenListAdd(CurNode.x, CurNode.y + 1);
+            OpenListAdd(CurNode.x + 1, CurNode.y);
+            OpenListAdd(CurNode.x, CurNode.y - 1);
+            OpenListAdd(CurNode.x - 1, CurNode.y);
         }
-
-
-
-
-
     }
-
-
 
     void OpenListAdd(int checkX, int checkY)
     {
         // 상하좌우 범위를 벗어나지 않고, 벽이 아니면서, 닫힌리스트에 없다면
-        if (checkX >= startPos.x && checkX < targetPos.x + 1 && checkY >= startPos.y && checkY < targetPos.y + 1 && !fieldArray[checkX - startPos.x, checkY - startPos.y].bIsWall && !closeList.Contains(fieldArray[checkX - startPos.x, checkY - startPos.y]))
+        if (checkX >= bottomLeft.x && checkX < topRight.x + 1 && checkY >= bottomLeft.y && checkY < topRight.y + 1 && !NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y].isWall && !ClosedList.Contains(NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y]))
         {
-           
+
             // 이웃노드에 넣고, 직선은 10, 대각선은 14비용
-            Node NeighborNode = fieldArray[checkX - startPos.x, checkY - startPos.y];
-            int MoveCost = curNode.g + (curNode.x - checkX == 0 || curNode.y - checkY == 0 ? 10 : 14);
+            Node NeighborNode = NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y];
+            int MoveCost = CurNode.G + (CurNode.x - checkX == 0 || CurNode.y - checkY == 0 ? 10 : 14);
 
 
             // 이동비용이 이웃노드G보다 작거나 또는 열린리스트에 이웃노드가 없다면 G, H, ParentNode를 설정 후 열린리스트에 추가
-            if (MoveCost < NeighborNode.g || !openList.Contains(NeighborNode))
+            if (MoveCost < NeighborNode.G || !OpenList.Contains(NeighborNode))
             {
-                NeighborNode.g = MoveCost;
-                NeighborNode.h = (Mathf.Abs(NeighborNode.x - targetNode.x) + Mathf.Abs(NeighborNode.y - targetNode.y)) * 10;
-                NeighborNode.parentNode = curNode;
+                NeighborNode.G = MoveCost;
+                NeighborNode.H = (Mathf.Abs(NeighborNode.x - TargetNode.x) + Mathf.Abs(NeighborNode.y - TargetNode.y)) * 10;
+                NeighborNode.ParentNode = CurNode;
 
-                openList.Add(NeighborNode);
+                OpenList.Add(NeighborNode);
             }
         }
+    }
+
+    void TargetFindPos(Vector2 start, Vector2 target)
+    {
+        
+        startPos = new Vector2Int(Mathf.RoundToInt(start.x), Mathf.RoundToInt(start.y));
+        targetPos = new Vector2Int(Mathf.RoundToInt(target.x), Mathf.RoundToInt(target.y));
+
+        bottomLeft.x = Mathf.Min(startPos.x, targetPos.x);
+        bottomLeft.y = Mathf.Min(startPos.y, targetPos.y);
+
+        bottomLeft.x -= 10;
+        bottomLeft.y -= 10;
+
+        topRight.x = Mathf.Max(startPos.x, targetPos.x);
+        topRight.y = Mathf.Max(startPos.y, targetPos.y);
+
+        topRight.x += 10;
+        topRight.y += 10;
     }
 
 
     void OnDrawGizmos()
     {
-        if (finalNodeList.Count != 0) for (int i = 0; i < finalNodeList.Count - 1; i++)
-                Gizmos.DrawLine(new Vector2(finalNodeList[i].x, finalNodeList[i].y), new Vector2(finalNodeList[i + 1].x, finalNodeList[i + 1].y));
+        if (FinalNodeList.Count != 0) for (int i = 0; i < FinalNodeList.Count - 1; i++)
+                Gizmos.DrawLine(new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), new Vector2(FinalNodeList[i + 1].x, FinalNodeList[i + 1].y));
     }
 
 }
