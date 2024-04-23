@@ -105,14 +105,19 @@ public class AStart : MonoBehaviour
 
                 for (int i = 0; i < FinalNodeList.Count; i++) 
                 {
-                    Debug.Log(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
+                    //디버그 출력용
+                    //Debug.Log(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
+                    //이동 거리 저장용
                     moveVec.Add(new Vector2(FinalNodeList[i].x, FinalNodeList[i].y));
                 }
                 return;
             }
 
-
-
+            // ↗↖↙↘
+            OpenListAdd(CurNode.x + 1, CurNode.y + 1);
+            OpenListAdd(CurNode.x - 1, CurNode.y + 1);
+            OpenListAdd(CurNode.x - 1, CurNode.y - 1);
+            OpenListAdd(CurNode.x + 1, CurNode.y - 1);
 
             // ↑ → ↓ ←
             OpenListAdd(CurNode.x, CurNode.y + 1);
@@ -127,6 +132,13 @@ public class AStart : MonoBehaviour
         // 상하좌우 범위를 벗어나지 않고, 벽이 아니면서, 닫힌리스트에 없다면
         if (checkX >= bottomLeft.x && checkX < topRight.x + 1 && checkY >= bottomLeft.y && checkY < topRight.y + 1 && !NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y].isWall && !ClosedList.Contains(NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y]))
         {
+
+            // 대각선 이동시, 벽 사이로 통과 안됨
+            if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall && NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
+
+            // 코너를 가로질러 가지 않을시, 이동 중에 수직수평 장애물이 있으면 안됨
+            if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall || NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
+
 
             // 이웃노드에 넣고, 직선은 10, 대각선은 14비용
             Node NeighborNode = NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y];
@@ -154,21 +166,29 @@ public class AStart : MonoBehaviour
         bottomLeft.x = Mathf.Min(startPos.x, targetPos.x);
         bottomLeft.y = Mathf.Min(startPos.y, targetPos.y);
 
-        bottomLeft.x -= 10;
-        bottomLeft.y -= 10;
+        bottomLeft.x -= 15;
+        bottomLeft.y -= 15;
 
         topRight.x = Mathf.Max(startPos.x, targetPos.x);
         topRight.y = Mathf.Max(startPos.y, targetPos.y);
 
-        topRight.x += 10;
-        topRight.y += 10;
+        topRight.x += 15;
+        topRight.y += 15;
     }
 
 
     void OnDrawGizmos()
     {
-        if (FinalNodeList.Count != 0) for (int i = 0; i < FinalNodeList.Count - 1; i++)
+
+        Gizmos.color = Color.green;
+
+        if (FinalNodeList != null && FinalNodeList.Count != 0)
+        {
+            for (int i = 0; i < FinalNodeList.Count - 1; i++)
+            {
                 Gizmos.DrawLine(new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), new Vector2(FinalNodeList[i + 1].x, FinalNodeList[i + 1].y));
+            }
+        }
     }
 
 }
