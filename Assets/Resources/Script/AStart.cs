@@ -25,7 +25,7 @@ public class Node
 public class AStart : MonoBehaviour
 {
     public Vector2Int bottomLeft, topRight, startPos, targetPos;
-    public List<Node> FinalNodeList;
+    public List<Node> FinalNodeList = new List<Node>();
     public bool allowDiagonal, dontCrossCorner;
 
     int sizeX, sizeY;
@@ -33,7 +33,7 @@ public class AStart : MonoBehaviour
     Node StartNode, TargetNode, CurNode;
     List<Node> OpenList, ClosedList;
 
-    public List<Vector2> moveVec;
+    public List<Vector2> moveVec = new List<Vector2>();
 
 
     public void PathFind(Vector2 start, Vector2 target)

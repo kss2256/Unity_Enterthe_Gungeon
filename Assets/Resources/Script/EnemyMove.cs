@@ -8,7 +8,8 @@ public class CMove_Type
     public bool bIsMove = false;
 
     public int curIndex = 0;
-    public float moveSpeed = 5f; 
+    public float moveSpeed = 3f;
+    public float naviRange = 6f;
     public List<Vector2> moveVec = new List<Vector2>(); // 이동 경로 저장
 }
 
@@ -25,11 +26,39 @@ public class EnemyMove : MonoBehaviour
         cMoveType = new CMove_Type();
     }
 
+    private void Update()
+    {
+        Vector3 playerpos = Engine.mInstant.player.transform.position;
+        Vector3 enemyPos = transform.position;
+        checkRange(playerpos, enemyPos, cMoveType.naviRange);
+
+
+
+    }
+
+    void checkRange(Vector2 playerPos, Vector2 monsterPos, float radius)
+    {
+        // 플레이어와 몬스터 사이의 거리 제곱 계산
+        float distanceSquared = (playerPos.x - monsterPos.x) * (playerPos.x - monsterPos.x)
+                              + (playerPos.y - monsterPos.y) * (playerPos.y - monsterPos.y);
+
+        // 거리 제곱이 반지름 제곱 이내에 있는지 확인
+        if (distanceSquared <= radius * radius)
+        {
+            //몬스터의 범위 내
+            Debug.Log("범위 안에 있음");
+        }
+        else
+        {
+            //몬스터의 범위 밖
+        }
+    }
+
+
     private void FixedUpdate()
     {
         MoveAStar();
     }
-
 
 
     public void FindPlayer(Vector3 target)

@@ -15,23 +15,27 @@ public class Enemy : MonoBehaviour
     {
         mAnimator = GetComponent<Animator>();
         enemyMove = gameObject.AddComponent<EnemyMove>();
+        StartCoroutine(FindPlayer());
 
     }
     
     protected virtual void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            //플레이어 위치로 변경 할것임
-            enemyMove.FindPlayer(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        }
-
-       
+    
         
-
+        
     }
 
 
+    IEnumerator FindPlayer()
+    {
 
+        enemyMove.FindPlayer(Engine.mInstant.player.transform.position);
+        yield return new WaitForSeconds(2);
+
+
+        StartCoroutine(FindPlayer());
+        //enemyMove.FindPlayer(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+    }
 
 }
