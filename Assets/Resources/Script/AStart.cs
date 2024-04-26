@@ -26,7 +26,7 @@ public class AStart : MonoBehaviour
 {
     public Vector2Int bottomLeft, topRight, startPos, targetPos;
     public List<Node> FinalNodeList = new List<Node>();
-    public bool allowDiagonal, dontCrossCorner;
+ 
 
     int sizeX, sizeY;
     Node[,] NodeArray;
@@ -34,13 +34,13 @@ public class AStart : MonoBehaviour
     List<Node> OpenList, ClosedList;
 
     public List<Vector2> moveVec = new List<Vector2>();
-
+    public bool bfindLoad = false;
 
     public void PathFind(Vector2 start, Vector2 target)
     {
 
         TargetFindPos(start, target);
-
+        bfindLoad = false;
 
         // NodeArray의 크기 정해주고, isWall, x, y 대입
         sizeX = Mathf.Abs(topRight.x - bottomLeft.x) + 1;
@@ -102,6 +102,7 @@ public class AStart : MonoBehaviour
                 }
                 FinalNodeList.Add(StartNode);
                 FinalNodeList.Reverse();
+                bfindLoad = true;
 
                 for (int i = 0; i < FinalNodeList.Count; i++) 
                 {
