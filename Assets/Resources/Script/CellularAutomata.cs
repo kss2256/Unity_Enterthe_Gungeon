@@ -78,9 +78,13 @@ public class CellularAutomata : MonoBehaviour
             {
                 if (neighbourX >= 0 && neighbourX < width && neighbourY >= 0 && neighbourY < height)
                 { //맵 범위를 초과하지 않게 조건문으로 검사
-                    if (neighbourX != gridX || neighbourY != gridY) wallCount += map[neighbourX, neighbourY]; //벽은 1이고 빈 공간은 0이므로 벽일 경우 wallCount 증가
+                    if (neighbourX != gridX || neighbourY != gridY) 
+                    {
+                        wallCount += map[neighbourX, neighbourY]; //벽은 1이고 빈 공간은 0이므로 벽일 경우 wallCount 증가
+                    }                   
                 }
-                else wallCount++; //주변 타일이 맵 범위를 벗어날 경우 wallCount 증가
+                else 
+                    wallCount++; //주변 타일이 맵 범위를 벗어날 경우 wallCount 증가
             }
         }
         return wallCount;

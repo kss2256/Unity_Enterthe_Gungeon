@@ -60,7 +60,8 @@ public class RandomMap : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-           
+            ClearTile();
+
         }
 
 
@@ -186,11 +187,11 @@ public class RandomMap : MonoBehaviour
 
                     //이게 CellularAutomata 알고리즘 
                     //주위의 벽이 5개 이상이면 벽으로 그게 아니면 땅으로 변경 하는 작업
-                    if (wallCount >= 5)
-                        mapArray[row, col].bIsWall = true;
+                    if (wallCount > 4)
+                        mapArray[col, row].bIsWall = true;
                     else
                     {
-                        mapArray[row, col].bIsWall = false;
+                        mapArray[col, row].bIsWall = false;
                     }
                 }
             }
@@ -209,9 +210,9 @@ public class RandomMap : MonoBehaviour
     int TileTransformation(int x, int y)
     {
 
-        //맵의 크기를 벗어나면 리턴
-        if (mapArray[x, y].x > mapWidth || mapArray[x, y].x < 0 || mapArray[x, y].y > mapHeight || mapArray[x, y].y < 0)
-            return 0;
+        //맵의 크기를 벗어나면 WallCount 증가
+        if (x > mapWidth || x < 0 || y > mapHeight || y < 0)
+            return ++wallCount;
 
         //지정한 지역이 벽이라면 WallCount 증가
         if (mapArray[x, y].bIsWall)
