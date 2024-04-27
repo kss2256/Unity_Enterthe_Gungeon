@@ -21,15 +21,24 @@ public class Cgrid
 
 }
 
+public enum eMapDirection
+{
+
+
+
+}
+
 
 
 public class RandomMap : MonoBehaviour
 {
 
-    [SerializeField] private int mapWidth, mapHeight;      //맵의 크기
-    [SerializeField] private int wallRatio;  //벽의 비율
+    [SerializeField] private int mapWidth, mapHeight;       //맵의 크기
+    [SerializeField] private int wallRatio;                 //벽의 비율
+    [SerializeField] private int roomCount;                 //랜덤맵 개수
 
-    [SerializeField] private Tilemap gridGround;
+
+    [SerializeField] private Tilemap gridGround;            
     [SerializeField] private Tilemap gridWall;
     [SerializeField] private Tile tileGround;
     [SerializeField] private Tile tileWall;
@@ -39,7 +48,7 @@ public class RandomMap : MonoBehaviour
 
     private void Awake()
     {
-
+        
         CreateMapWall();
     }
 
@@ -65,10 +74,24 @@ public class RandomMap : MonoBehaviour
         }
 
 
+
+
     }
 
 
+    void RoomConnect(int count)
+    {
+        System.Random random = new System.Random();
 
+        for (int i = 0; i < roomCount; ++i)
+        {
+
+        }
+
+
+
+
+    }
 
 
 
@@ -109,8 +132,6 @@ public class RandomMap : MonoBehaviour
                 
             }
         }
-
-
 
     }
 

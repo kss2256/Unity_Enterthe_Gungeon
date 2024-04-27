@@ -264,6 +264,7 @@ MonoBehaviour:
   mapWidth: 20
   mapHeight: 20
   wallRatio: 55
+  roomCount: 0
   gridGround: {fileID: 586827397}
   gridWall: {fileID: 1983597427}
   tileGround: {fileID: 11400000, guid: 2352a143840fa6c4cb570b7393cb46e8, type: 2}

@@ -34,6 +34,7 @@ public class AStart : MonoBehaviour
     List<Node> OpenList, ClosedList;
 
     public List<Vector2> moveVec = new List<Vector2>();
+    public bool bdiagonal = true;
     public bool bfindLoad = false;
 
     public void PathFind(Vector2 start, Vector2 target)
@@ -115,10 +116,14 @@ public class AStart : MonoBehaviour
             }
 
             // ↗↖↙↘
-            OpenListAdd(CurNode.x + 1, CurNode.y + 1);
-            OpenListAdd(CurNode.x - 1, CurNode.y + 1);
-            OpenListAdd(CurNode.x - 1, CurNode.y - 1);
-            OpenListAdd(CurNode.x + 1, CurNode.y - 1);
+            if(bdiagonal)
+            {
+                OpenListAdd(CurNode.x + 1, CurNode.y + 1);
+                OpenListAdd(CurNode.x - 1, CurNode.y + 1);
+                OpenListAdd(CurNode.x - 1, CurNode.y - 1);
+                OpenListAdd(CurNode.x + 1, CurNode.y - 1);
+            }
+           
 
             // ↑ → ↓ ←
             OpenListAdd(CurNode.x, CurNode.y + 1);
@@ -134,11 +139,15 @@ public class AStart : MonoBehaviour
         if (checkX >= bottomLeft.x && checkX < topRight.x + 1 && checkY >= bottomLeft.y && checkY < topRight.y + 1 && !NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y].isWall && !ClosedList.Contains(NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y]))
         {
 
-            // 대각선 이동시, 벽 사이로 통과 안됨
-            if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall && NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
+            if(bdiagonal)
+            {
+                // 대각선 이동시, 벽 사이로 통과 안됨
+                if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall && NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
 
-            // 코너를 가로질러 가지 않을시, 이동 중에 수직수평 장애물이 있으면 안됨
-            if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall || NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
+                // 코너를 가로질러 가지 않을시, 이동 중에 수직수평 장애물이 있으면 안됨
+                if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall || NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
+            }
+           
 
 
             // 이웃노드에 넣고, 직선은 10, 대각선은 14비용
