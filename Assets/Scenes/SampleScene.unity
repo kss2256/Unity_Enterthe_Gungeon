@@ -261,10 +261,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2d2e6d067d96c44944e420f7bd3f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapWidth: 20
-  mapHeight: 20
+  mapWidth: 3
+  mapHeight: 3
   wallRatio: 55
-  roomCount: 0
+  roomCount: 3
   gridGround: {fileID: 586827397}
   gridWall: {fileID: 1983597427}
   tileGround: {fileID: 11400000, guid: 2352a143840fa6c4cb570b7393cb46e8, type: 2}
