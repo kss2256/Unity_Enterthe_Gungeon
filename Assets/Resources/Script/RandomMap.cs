@@ -58,23 +58,21 @@ public class RandomMap : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.U))
         {
-            RoomConnect();
-            CreateMapWall();
-            CreatTile();
+            CreateDunegeon();
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            CellularAutomata();
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            CellularAutomata();
-            RefreshTile();
-
+            LoadConstruction();
         }
         if (Input.GetKeyDown(KeyCode.P))
-        {
+        {           
             TileErase();
-
-
         }
 
         
@@ -82,6 +80,78 @@ public class RandomMap : MonoBehaviour
 
     }
 
+    void LoadConstruction()
+    {
+        Vector3Int pos = new Vector3Int();
+
+        for (int Idx = 0; Idx < listmoveVec.Count; Idx++)
+        {
+
+            pos = new Vector3Int((int)listmoveVec[Idx].x, (int)listmoveVec[Idx].y, 0);
+            //mapArray밖의 범위 -> 통로가 될 부분
+            if(null == gridGround.GetTile(pos) && gridWall.GetTile(pos) == null)
+            {
+                //이전 무브벡이 x이동인지 y이동인지 확인하기
+
+                //y이동 중
+                if(listmoveVec[Idx].x == listmoveVec[Idx - 1].x)
+                {
+                    gridWall.SetTile(new Vector3Int(pos.x + 2, pos.y, 0), tileWall);
+                    gridWall.SetTile(new Vector3Int(pos.x - 2, pos.y, 0), tileWall);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround);
+                    gridGround.SetTile(new Vector3Int(pos.x + 1, pos.y, 0), tileGround);
+                    gridGround.SetTile(new Vector3Int(pos.x - 1, pos.y, 0), tileGround);
+                }
+                //x이동 중
+                else if (listmoveVec[Idx].y == listmoveVec[Idx - 1].y)
+                {
+                    gridWall.SetTile(new Vector3Int(pos.x, pos.y + 2, 0), tileWall);
+                    gridWall.SetTile(new Vector3Int(pos.x, pos.y - 2, 0), tileWall);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y + 1, 0), tileGround);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y - 1, 0), tileGround);
+                }
+              
+            }
+            //둘중 하나
+            else
+            {
+                if (Idx <= 0)
+                    continue;
+
+
+                //타일 지금있는녀석 지우고 그라운드로 교체
+                gridWall.SetTile(pos, null);
+                gridGround.SetTile(pos, null);
+                if (listmoveVec[Idx].x == listmoveVec[Idx - 1].x)
+                {
+                    gridWall.SetTile(new Vector3Int(pos.x + 1, pos.y, 0), null);
+                    gridWall.SetTile(new Vector3Int(pos.x - 1, pos.y, 0), null);
+                    gridGround.SetTile(new Vector3Int(pos.x + 1, pos.y, 0), null);
+                    gridGround.SetTile(new Vector3Int(pos.x - 1, pos.y, 0), null);
+
+                    gridGround.SetTile(new Vector3Int(pos.x + 1, pos.y, 0), tileGround);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround);
+                    gridGround.SetTile(new Vector3Int(pos.x - 1, pos.y, 0), tileGround);
+                }
+
+                else if (listmoveVec[Idx].y == listmoveVec[Idx - 1].y)
+                {
+                    gridWall.SetTile(new Vector3Int(pos.x, pos.y + 1, 0), null);
+                    gridWall.SetTile(new Vector3Int(pos.x, pos.y - 1, 0), null);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y + 1, 0), null);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y - 1, 0), null);
+
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y + 1, 0), tileGround);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y - 1, 0), tileGround);
+                }
+            }
+
+        }
+
+
+    }
 
     void RoomConnect()
     {
@@ -107,7 +177,7 @@ public class RandomMap : MonoBehaviour
             while (dir)
             {
                 int cheak = 0;
-                if (!IsOpposite(curDir, prevDir))
+                if (!IsOppositeDir(curDir, prevDir))
                 {
                     // → ← ↑ ↓
                     switch (curDir)
@@ -151,7 +221,7 @@ public class RandomMap : MonoBehaviour
 
     }
 
-    bool IsOpposite(int curdir, int prevdir)
+    bool IsOppositeDir(int curdir, int prevdir)
     {
 
         switch(curdir)
@@ -197,7 +267,7 @@ public class RandomMap : MonoBehaviour
             {
                 bool wall = false;
                 //맵 의 가장자리는 전부 벽으로
-                if (i == 0 || i == mapWidth + width || j == 0 || j == mapHeight + height)
+                if (i == 0 || i == mapWidth || j == 0 || j == mapHeight )
                 {
                     wall = true;
                 }
@@ -265,7 +335,9 @@ public class RandomMap : MonoBehaviour
 
         }
 
+        RefreshTile();
     }
+
     void CreatTile()
     {
         for (int list = 0; list < mapArrList.Count; list++)
@@ -294,25 +366,24 @@ public class RandomMap : MonoBehaviour
 
     void ClearTile()
     {
-
-        Vector3Int pos = Vector3Int.zero;
-        for (int list = 0; list < mapArrList.Count; list++)
-        {
-            for (int i = 0; i < mapArrList[list].GetLength(0); i++)
-            {
-                for (int j = 0; j < mapArrList[list].GetLength(1); j++)
-                {
-                    pos.x = mapArrList[list][i, j].x;
-                    pos.y = mapArrList[list][i, j].y;
-                    //pos.x = i;
-                    //pos.y = j;
-                    gridWall.SetTile(pos, null);
-                    gridGround.SetTile(pos, null);
-                }
-            }
-        }
+        gridWall.ClearAllTiles();
+        gridGround.ClearAllTiles();
 
 
+        //Vector3Int pos = Vector3Int.zero;
+        //for (int list = 0; list < mapArrList.Count; list++)
+        //{
+        //    for (int i = 0; i < mapArrList[list].GetLength(0); i++)
+        //    {
+        //        for (int j = 0; j < mapArrList[list].GetLength(1); j++)
+        //        {
+        //            pos.x = mapArrList[list][i, j].x;
+        //            pos.y = mapArrList[list][i, j].y;
+        //            gridWall.SetTile(pos, null);
+        //            gridGround.SetTile(pos, null);
+        //        }
+        //    }
+        //}
     }
 
     void InitTile(Cgrid Cgrid)
@@ -326,6 +397,8 @@ public class RandomMap : MonoBehaviour
         {
             gridGround.SetTile(pos, tileGround);
         }
+
+        
 
     }
 
@@ -369,6 +442,14 @@ public class RandomMap : MonoBehaviour
                 Gizmos.DrawLine(new Vector2(listmoveVec[i].x, listmoveVec[i].y), new Vector2(listmoveVec[i + 1].x, listmoveVec[i + 1].y));
             }
         }
+    }
+
+
+    void CreateDunegeon()
+    {
+        RoomConnect();
+      
+        CreatTile();
     }
 
 }
