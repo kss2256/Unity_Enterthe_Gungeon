@@ -39,15 +39,16 @@ public class RandomMap : MonoBehaviour
 
     [SerializeField] private Tilemap gridGround;            
     [SerializeField] private Tilemap gridWall;
-    [SerializeField] private Tile tileGround;
-    [SerializeField] private Tile tileWall;
+    [SerializeField] private Tile[] tileGround;
+    [SerializeField] private Tile[] tileWall;               //0~3 까지 → ← ↓ ↑ 순으로 배열에 두기
 
-    
+
+
     private List<Cgrid[,]> mapArrList = new List<Cgrid[,]>();
     private int wallCount;
 
     private AStart aStart;
-    private Vector2Int[] centerPosVec;
+    private Vector2Int[] centerPosVec;      //centerPosVec 0번째가 시작 count마지막 번째가 클리어
     private Vector2Int dirDistance;
     private List<Vector2> listmoveVec = new List<Vector2>();
 
@@ -83,6 +84,7 @@ public class RandomMap : MonoBehaviour
     void LoadConstruction()
     {
         Vector3Int pos = new Vector3Int();
+        System.Random random = new System.Random();
 
         for (int Idx = 0; Idx < listmoveVec.Count; Idx++)
         {
@@ -96,20 +98,20 @@ public class RandomMap : MonoBehaviour
                 //y이동 중
                 if(listmoveVec[Idx].x == listmoveVec[Idx - 1].x)
                 {
-                    gridWall.SetTile(new Vector3Int(pos.x + 2, pos.y, 0), tileWall);
-                    gridWall.SetTile(new Vector3Int(pos.x - 2, pos.y, 0), tileWall);
-                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround);
-                    gridGround.SetTile(new Vector3Int(pos.x + 1, pos.y, 0), tileGround);
-                    gridGround.SetTile(new Vector3Int(pos.x - 1, pos.y, 0), tileGround);
+                    gridWall.SetTile(new Vector3Int(pos.x + 2, pos.y, 0), tileWall[1]);
+                    gridWall.SetTile(new Vector3Int(pos.x - 2, pos.y, 0), tileWall[0]);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround[random.Next(0, tileGround.Length)]);
+                    gridGround.SetTile(new Vector3Int(pos.x + 1, pos.y, 0), tileGround[random.Next(0, tileGround.Length)]);
+                    gridGround.SetTile(new Vector3Int(pos.x - 1, pos.y, 0), tileGround[random.Next(0, tileGround.Length)]);
                 }
                 //x이동 중
                 else if (listmoveVec[Idx].y == listmoveVec[Idx - 1].y)
                 {
-                    gridWall.SetTile(new Vector3Int(pos.x, pos.y + 2, 0), tileWall);
-                    gridWall.SetTile(new Vector3Int(pos.x, pos.y - 2, 0), tileWall);
-                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround);
-                    gridGround.SetTile(new Vector3Int(pos.x, pos.y + 1, 0), tileGround);
-                    gridGround.SetTile(new Vector3Int(pos.x, pos.y - 1, 0), tileGround);
+                    gridWall.SetTile(new Vector3Int(pos.x, pos.y + 2, 0), tileWall[3]);
+                    gridWall.SetTile(new Vector3Int(pos.x, pos.y - 2, 0), tileWall[2]);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround[random.Next(0, tileGround.Length)]);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y + 1, 0), tileGround[random.Next(0, tileGround.Length)]);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y - 1, 0), tileGround[random.Next(0, tileGround.Length)]);
                 }
               
             }
@@ -130,9 +132,9 @@ public class RandomMap : MonoBehaviour
                     gridGround.SetTile(new Vector3Int(pos.x + 1, pos.y, 0), null);
                     gridGround.SetTile(new Vector3Int(pos.x - 1, pos.y, 0), null);
 
-                    gridGround.SetTile(new Vector3Int(pos.x + 1, pos.y, 0), tileGround);
-                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround);
-                    gridGround.SetTile(new Vector3Int(pos.x - 1, pos.y, 0), tileGround);
+                    gridGround.SetTile(new Vector3Int(pos.x + 1, pos.y, 0), tileGround[random.Next(0, tileGround.Length)]);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround[random.Next(0, tileGround.Length)]);
+                    gridGround.SetTile(new Vector3Int(pos.x - 1, pos.y, 0), tileGround[random.Next(0, tileGround.Length)]);
                 }
 
                 else if (listmoveVec[Idx].y == listmoveVec[Idx - 1].y)
@@ -142,9 +144,9 @@ public class RandomMap : MonoBehaviour
                     gridGround.SetTile(new Vector3Int(pos.x, pos.y + 1, 0), null);
                     gridGround.SetTile(new Vector3Int(pos.x, pos.y - 1, 0), null);
 
-                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround);
-                    gridGround.SetTile(new Vector3Int(pos.x, pos.y + 1, 0), tileGround);
-                    gridGround.SetTile(new Vector3Int(pos.x, pos.y - 1, 0), tileGround);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y, 0), tileGround[random.Next(0, tileGround.Length)]);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y + 1, 0), tileGround[random.Next(0, tileGround.Length)]);
+                    gridGround.SetTile(new Vector3Int(pos.x, pos.y - 1, 0), tileGround[random.Next(0, tileGround.Length)]);
                 }
             }
 
@@ -173,13 +175,13 @@ public class RandomMap : MonoBehaviour
                 continue;
             }
             bool dir = true;
-            curDir = random.Next(1, 5);
+            curDir = random.Next(1, 5);     //5는 세로 직각 9 는 대각선까지
             while (dir)
             {
                 int cheak = 0;
                 if (!IsOppositeDir(curDir, prevDir))
                 {
-                    // → ← ↑ ↓
+                    // → ← ↑ ↓  ↗↖↙↘
                     switch (curDir)
                     {
                         case 1:
@@ -192,6 +194,22 @@ public class RandomMap : MonoBehaviour
                             dirDistance.y += random.Next(5, 10) + mapHeight;
                             break;
                         case 4:
+                            dirDistance.y -= random.Next(5, 10) + mapHeight;
+                            break;
+                        case 5:
+                            dirDistance.x += random.Next(5, 10) + mapWidth;
+                            dirDistance.y += random.Next(5, 10) + mapHeight;
+                            break;
+                        case 6:
+                            dirDistance.x -= random.Next(5, 10) + mapWidth;
+                            dirDistance.y += random.Next(5, 10) + mapHeight;
+                            break;
+                        case 7:
+                            dirDistance.x -= random.Next(5, 10) + mapWidth;
+                            dirDistance.y -= random.Next(5, 10) + mapHeight;
+                            break;
+                        case 8:
+                            dirDistance.x += random.Next(5, 10) + mapWidth;
                             dirDistance.y -= random.Next(5, 10) + mapHeight;
                             break;
                     }
@@ -346,7 +364,22 @@ public class RandomMap : MonoBehaviour
             {
                 for (int j = 0; j < mapArrList[list].GetLength(1); j++)
                 {
-                    InitTile(mapArrList[list][i, j]);
+                    //가장자리는 아웃라인 벽
+                    if (i == 0 || i == mapWidth || j == 0 || j == mapHeight)
+                    {
+                        if(i == 0)
+                            InitTile(mapArrList[list][i, j], tileWall[0]);
+                        else if (i == mapWidth)
+                            InitTile(mapArrList[list][i, j], tileWall[1]);
+                        else if (j == 0)
+                            InitTile(mapArrList[list][i, j], tileWall[2]);
+                        else if (j == mapHeight)
+                            InitTile(mapArrList[list][i, j], tileWall[3]);
+                    }
+                    else
+                    {
+                        InitTile(mapArrList[list][i, j]);
+                    }                       
                 }
             }
         }
@@ -386,16 +419,23 @@ public class RandomMap : MonoBehaviour
         //}
     }
 
-    void InitTile(Cgrid Cgrid)
+    void InitTile(Cgrid Cgrid, TileBase _tile = null)
     {
         Vector3Int pos = new Vector3Int(Cgrid.x, Cgrid.y, 0);
-        if(Cgrid.bIsWall)
+        System.Random random = new System.Random();
+
+        if (Cgrid.bIsWall)
         {
-            gridWall.SetTile(pos, tileWall);
+            if(_tile)
+            {
+                gridWall.SetTile(pos, _tile);
+            }
+            else
+            gridWall.SetTile(pos, tileWall[random.Next(4, tileWall.Length)]);
         }
         else
         {
-            gridGround.SetTile(pos, tileGround);
+            gridGround.SetTile(pos, tileGround[random.Next(0, tileGround.Length)]);
         }
 
         

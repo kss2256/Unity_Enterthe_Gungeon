@@ -264,11 +264,17 @@ MonoBehaviour:
   mapWidth: 30
   mapHeight: 30
   wallRatio: 50
-  roomCount: 2
+  roomCount: 6
   gridGround: {fileID: 586827397}
   gridWall: {fileID: 1983597427}
-  tileGround: {fileID: 11400000, guid: 2352a143840fa6c4cb570b7393cb46e8, type: 2}
-  tileWall: {fileID: 11400000, guid: a2eb1f5e9ddb07c48bc23b7ee1abe01c, type: 2}
+  tileGround:
+  - {fileID: 11400000, guid: 836bf8b272ecd9c4fa6d7ebb9fa3ed2d, type: 2}
+  tileWall:
+  - {fileID: 11400000, guid: b5593543e3cc59b4ca2d2c5e45f7890a, type: 2}
+  - {fileID: 11400000, guid: d7c07e55a89ee3b4a8096ccfe538b2fe, type: 2}
+  - {fileID: 11400000, guid: a6e23bfd6a973a5498e1cc5e00c89234, type: 2}
+  - {fileID: 11400000, guid: 4b98516c11cba54439598e5073aef11f, type: 2}
+  - {fileID: 11400000, guid: 44592b3b8815fec4092945fe4ffa80fa, type: 2}
 --- !u!1 &148332655
 GameObject:
   m_ObjectHideFlags: 0
