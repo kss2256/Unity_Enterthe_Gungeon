@@ -11,6 +11,7 @@ public class Shoot : MonoBehaviour
     private void Awake()
     {
         Initalize(10);
+        
     }
 
     private Bullet CreateBullet()
@@ -37,7 +38,7 @@ public class Shoot : MonoBehaviour
     }
 
 
-    public void BulletInit()
+    public void BulletFire(Vector3 _target, Vector3 _start)
     {
         Bullet bullet;
 
@@ -48,21 +49,16 @@ public class Shoot : MonoBehaviour
 
         bullet = mBulletQue.Dequeue();
         bullet.gameObject.SetActive(true);
-
-        Vector3 weaponpos = GameObject.Find("Part").GetComponent<Part>().weaponTr.position;
-
-
-        Vector3 mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);        
-        Vector3 dir = mouPos - weaponpos;
+       
+            
+        Vector3 dir = _target - _start;
         dir.z = 0;
 
 
 
-        bullet.transform.position = weaponpos;
+        bullet.transform.position = _start;
         bullet.Shoot(dir.normalized);
        
-
-
        
         StartCoroutine(ReturnBullet(bullet));
        

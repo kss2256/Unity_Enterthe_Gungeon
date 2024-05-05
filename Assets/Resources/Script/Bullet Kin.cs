@@ -7,34 +7,44 @@ public class BulletKin : Enemy
 {
 
     [SerializeField]
-    GameObject handObject;
+    private GameObject handObject;
 
     [SerializeField]
-    GameObject gunObject;
+    private GameObject gunObject;
 
-    
+    private Shoot shoot;
 
+    private void Start()
+    {
+        shoot = GetComponent<Shoot>();
+
+
+    }
 
     protected override void Update()
     {
+        base.Update();
 
         if (Input.GetKeyDown(KeyCode.N))
         {
-            Shoot();
+            shoot.BulletFire(Engine.mInstant.player.transform.position, transform.position);
         }
 
 
-        base.Update();
+        if(IsAttack)
+        {
+
+        }
+        
     }
 
 
 
 
 
-    private void Shoot()
+    private void ShootAnimaiton()
     {
         gunObject.GetComponent<Animator>().SetTrigger("Attack");
-
     }
 
 }

@@ -194,7 +194,7 @@ public class InputScript : MonoBehaviour
                 mPlayerStatus.attack = true;
                 Camera.main.GetComponent<CameraShake>().CameraShaking();
                 
-                GetComponent<Shoot>().BulletInit();
+                GetComponent<Shoot>().BulletFire(Camera.main.ScreenToWorldPoint(Input.mousePosition), GameObject.Find("Part").GetComponent<Part>().weaponTr.position);
             }
         }
 

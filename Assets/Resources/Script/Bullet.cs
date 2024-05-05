@@ -7,7 +7,11 @@ public class Bullet : MonoBehaviour
     private Vector3 mDirection;
     private float mSpeed = 20.0f;
 
-    
+    public float speed
+    {
+        get { return mSpeed; }
+        set { mSpeed = value; }
+    }
 
 
 

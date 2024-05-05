@@ -55,6 +55,7 @@ public class RandomMap : MonoBehaviour
     private void Awake()
     {
         aStart = gameObject.AddComponent<AStart>();
+        aStart.bdiagonal = false;
     }
 
     private void Update()
@@ -196,22 +197,22 @@ public class RandomMap : MonoBehaviour
                         case 4:
                             dirDistance.y -= random.Next(5, 10) + mapHeight;
                             break;
-                        case 5:
-                            dirDistance.x += random.Next(5, 10) + mapWidth;
-                            dirDistance.y += random.Next(5, 10) + mapHeight;
-                            break;
-                        case 6:
-                            dirDistance.x -= random.Next(5, 10) + mapWidth;
-                            dirDistance.y += random.Next(5, 10) + mapHeight;
-                            break;
-                        case 7:
-                            dirDistance.x -= random.Next(5, 10) + mapWidth;
-                            dirDistance.y -= random.Next(5, 10) + mapHeight;
-                            break;
-                        case 8:
-                            dirDistance.x += random.Next(5, 10) + mapWidth;
-                            dirDistance.y -= random.Next(5, 10) + mapHeight;
-                            break;
+                        //case 5:
+                        //    dirDistance.x += random.Next(5, 10) + mapWidth;
+                        //    dirDistance.y += random.Next(5, 10) + mapHeight;
+                        //    break;
+                        //case 6:
+                        //    dirDistance.x -= random.Next(5, 10) + mapWidth;
+                        //    dirDistance.y += random.Next(5, 10) + mapHeight;
+                        //    break;
+                        //case 7:
+                        //    dirDistance.x -= random.Next(5, 10) + mapWidth;
+                        //    dirDistance.y -= random.Next(5, 10) + mapHeight;
+                        //    break;
+                        //case 8:
+                        //    dirDistance.x += random.Next(5, 10) + mapWidth;
+                        //    dirDistance.y -= random.Next(5, 10) + mapHeight;
+                        //    break;
                     }
                     for (int k = 0; k < centerPosVec.Length; k++)
                     {
