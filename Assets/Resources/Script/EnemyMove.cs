@@ -17,9 +17,14 @@ public class EnemyMove : MonoBehaviour
     private AStart aStart;
     private CMove_Type cMoveType;
 
+    //이동 방향으로 Image 회전
+    private SpriteRenderer  spriteRenderer;
+    private bool bflip;
+
     private void Awake()
     {
         aStart = gameObject.AddComponent<AStart>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         cMoveType = new CMove_Type();
     }
 
@@ -30,6 +35,10 @@ public class EnemyMove : MonoBehaviour
         MoveAStar();
     }
 
+    private void LateUpdate()
+    {
+        spriteRenderer.flipX = bflip;
+    }
 
     public void FindPlayer(Vector3 target)
     {
@@ -59,6 +68,8 @@ public class EnemyMove : MonoBehaviour
 
         // 현재 위치에서 목표 위치로의 방향 벡터 계산
         Vector2 moveDirection = (targetPosition - (Vector2)transform.position).normalized;
+
+        bflip = moveDirection.x < 0;
 
         // 캐릭터를 목표 위치로 이동
         transform.Translate(moveDirection * cMoveType.moveSpeed * Time.deltaTime);

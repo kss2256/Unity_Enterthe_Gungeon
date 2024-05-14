@@ -68,18 +68,17 @@ public class Enemy : MonoBehaviour
         //이동 반경인지 확인
         if (distanceSquared <= moveRadius * moveRadius)
         {
-            Debug.Log("Fin");
             bIsMove = false;
         }
         else
         {
-            Debug.Log("Move");
             bIsMove = true;
         }
 
         //공격 거리 확인
         if (distanceSquared <= attackRadius * attackRadius)
         {
+            Debug.Log("Attack");
             bIsAttack = true;
         }
         else

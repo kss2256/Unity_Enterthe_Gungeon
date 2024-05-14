@@ -38,7 +38,7 @@ public class Shoot : MonoBehaviour
     }
 
 
-    public void BulletFire(Vector3 _target, Vector3 _start)
+    public void BulletFire(Vector3 _target, Vector3 _start, float _speed = 20.0f)
     {
         Bullet bullet;
 
@@ -57,7 +57,7 @@ public class Shoot : MonoBehaviour
 
 
         bullet.transform.position = _start;
-        bullet.Shoot(dir.normalized);
+        bullet.Shoot(dir.normalized, _speed);
        
        
         StartCoroutine(ReturnBullet(bullet));

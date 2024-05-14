@@ -18397,6 +18397,7 @@ GameObject:
   - component: {fileID: 1621641413}
   - component: {fileID: 1621641414}
   - component: {fileID: 1621641415}
+  - component: {fileID: 1621641416}
   m_Layer: 0
   m_Name: Bullet Kin
   m_TagString: Untagged
@@ -18565,6 +18566,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mBasicBulletPreFab: {fileID: 4147111945730580495, guid: 83b577508e655954d8ba2533995c7ffc, type: 3}
+--- !u!114 &1621641416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621641409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854c1a561bf92004999a4a552b1d5fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handObject: {fileID: 832174217}
+  gunObject: {fileID: 1940769273}
 --- !u!1 &1812083321
 GameObject:
   m_ObjectHideFlags: 0

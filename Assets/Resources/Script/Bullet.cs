@@ -23,9 +23,10 @@ public class Bullet : MonoBehaviour
     }
 
 
-    public void Shoot(Vector3 _dir)
+    public void Shoot(Vector3 _dir, float _speed)
     {
-        mDirection = _dir;        
+        mDirection = _dir;
+        mSpeed = _speed;
 
     }
 
