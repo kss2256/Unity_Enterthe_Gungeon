@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 public class EnemyHand : MonoBehaviour
 {
 
-    [SerializeField] private GameObject handObject;
-    [SerializeField] private GameObject gunObject;
+    [SerializeField, Tooltip("손 오브젝트")] private GameObject handObject;
+    [SerializeField, Tooltip("총 오브젝트")] private GameObject gunObject;
 
 
     private Transform targetTr;
@@ -32,10 +32,9 @@ public class EnemyHand : MonoBehaviour
 
     private void Update()
     {
+
         DirectionCheak();
        
-
-
 
     }
 
@@ -54,6 +53,12 @@ public class EnemyHand : MonoBehaviour
 
         
         gunspriteRenderer.flipX = !bRightDir;
+    }
+
+
+    private void WeaponRotation()
+    {
+
     }
 
 
